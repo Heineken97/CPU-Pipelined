@@ -38,7 +38,7 @@ module top (
 
     // Instanciar el módulo ROM
     ROM rom_memory (
-        .address(pc_address),
+        .address(pc_address[7:0]), // Usando solo los 8 bits menos significativos
         .clock(clk),
         .q(ROM_data)
     );
