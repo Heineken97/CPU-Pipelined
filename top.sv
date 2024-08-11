@@ -16,7 +16,6 @@ module top (
 	 logic wre;
 	logic [15:0] ALUop_decode;
 	logic [15:0] ALUop_execute;
-	logic [15:0] wd3;
 	logic [15:0] rd1;
 	logic [15:0] rd2;
 	logic [15:0] rd3;
@@ -88,7 +87,7 @@ module top (
       .a1(instruction_decode[3:0]),
       .a2(instruction_decode[7:4]),
       .a3(instruction_decode[11:8]),
-      .wd3(wd3),
+      .wd3(calcData_writeback),
       .rd1(rd1),
       .rd2(rd2),
       .rd3(rd3)
