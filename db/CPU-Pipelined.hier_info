@@ -18,22 +18,22 @@ offset[12] => offset[12].IN1
 offset[13] => offset[13].IN1
 offset[14] => offset[14].IN1
 offset[15] => offset[15].IN1
-ROM_data[0] <= ROM:rom_memory.q
-ROM_data[1] <= ROM:rom_memory.q
-ROM_data[2] <= ROM:rom_memory.q
-ROM_data[3] <= ROM:rom_memory.q
-ROM_data[4] <= ROM:rom_memory.q
-ROM_data[5] <= ROM:rom_memory.q
-ROM_data[6] <= ROM:rom_memory.q
-ROM_data[7] <= ROM:rom_memory.q
-ROM_data[8] <= ROM:rom_memory.q
-ROM_data[9] <= ROM:rom_memory.q
-ROM_data[10] <= ROM:rom_memory.q
-ROM_data[11] <= ROM:rom_memory.q
-ROM_data[12] <= ROM:rom_memory.q
-ROM_data[13] <= ROM:rom_memory.q
-ROM_data[14] <= ROM:rom_memory.q
-ROM_data[15] <= ROM:rom_memory.q
+ROM_data[0] << ROM:rom_memory.q
+ROM_data[1] << ROM:rom_memory.q
+ROM_data[2] << ROM:rom_memory.q
+ROM_data[3] << ROM:rom_memory.q
+ROM_data[4] << ROM:rom_memory.q
+ROM_data[5] << ROM:rom_memory.q
+ROM_data[6] << ROM:rom_memory.q
+ROM_data[7] << ROM:rom_memory.q
+ROM_data[8] << ROM:rom_memory.q
+ROM_data[9] << ROM:rom_memory.q
+ROM_data[10] << ROM:rom_memory.q
+ROM_data[11] << ROM:rom_memory.q
+ROM_data[12] << ROM:rom_memory.q
+ROM_data[13] << ROM:rom_memory.q
+ROM_data[14] << ROM:rom_memory.q
+ROM_data[15] << ROM:rom_memory.q
 
 
 |top|PC_register:pc_reg

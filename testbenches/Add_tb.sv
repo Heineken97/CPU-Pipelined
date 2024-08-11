@@ -2,7 +2,7 @@
 module Add_tb;
     
    logic clk = 0;
-	logic reset = 0;
+	logic reset = 1;
 	logic select_next_PC = 0;
 	logic [15:0] pc_address;
    logic [15:0] jumpAddress;
@@ -155,8 +155,9 @@ module Add_tb;
     
     always #10 clk = ~clk;
     initial begin
-        
-		  #100;
+        reset = 0;
+		  
+		  #200;
         
         // Finalizar la simulación
         $finish;
