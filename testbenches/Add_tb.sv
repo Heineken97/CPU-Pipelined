@@ -1,19 +1,18 @@
-module top (
-    input logic clk,
-    input logic reset,
-    input logic select,
-    input logic [15:0] offset,
-    output logic [15:0] ROM_data
-);
-
-    // Interconexiones
-    logic [15:0] pc_address;
-    logic [15:0] pc_incremented;
-    logic [15:0] mux_output;
-	 logic [15:0] instruction_fetch;
-	 logic [15:0] instruction_decode;
+`timescale 1ps/1ps
+module Add_tb;
+    
+   logic clk = 0;
+	logic reset = 0;
+	logic select_next_PC = 0;
+	logic [15:0] pc_address;
+   logic [15:0] jumpAddress;
+	logic [15:0] pc_incremented;
+	logic [15:0] offset = 16'b1;
+   logic [15:0] mux_output;
+	logic [15:0] instruction_fetched;
+	logic [15:0] instruction_decode;
 	 
-	 logic wre;
+	logic wre;
 	logic [15:0] ALUop_decode;
 	logic [15:0] ALUop_execute;
 	logic [15:0] wd3;
@@ -45,39 +44,32 @@ module top (
     );
 
     mux_2inputs mux_2inputs_PC (
-        .data0(pc_address),
-        .data1(pc_incremented),
-        .select(select),
+        .data0(pc_incremented),
+        .data1(jumpAddress),
+        .select(select_next_PC),
         .out(mux_output)
     );
 
     ROM rom_memory (
         .address(pc_address),
         .clock(clk),
-        .q(ROM_data)
+        .q(instruction_fetched)
+    );
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+		
+    FetchDecode_register FetchDecode_register_instance (
+        .clk(clk),
+		  .reset(reset),
+        .instruction_in(instruction_fetched),
+        .instruction_out(instruction_decode)
     );
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-	 FetchDecode_register FetchDecode_register_instance (
-        .clk(clk),
-		  .reset(reset),
-        .instruction_in(instruction_fetch),
-        .instruction_out(instruction_decode)
-    );
-	
-////////////////////////////////////////////////////////////////////////////////////////////////	
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 	controlUnit control_unit_instance (
+	controlUnit control_unit_instance (
       .opCode(instruction_decode[15:12]),
-		 .wre(wre),
+		.wre(wre),
       .aluOp(ALUop_decode)     
     );
 	 
@@ -108,7 +100,6 @@ module top (
 
 	 DecodeExecute_register DecodeExecute_register_instance (
 		.clk(clk),
-		.reset(reset),
       .aluOp_in(ALUop_decode),
       .srcA_in(rd1),
 		.srcB_in(rd2),
@@ -117,7 +108,10 @@ module top (
 		.srcB_out(srcB_execute)
    );
           
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 	ALU ALU_instance (
       .aluOp(ALUop_execute),       
@@ -133,7 +127,6 @@ module top (
 
 	  ExecuteMemory_register ExecuteMemory_register_instance (
 		.clk(clk),
-		.reset(reset),
       .ALUresult_in(alu_result_execute),
       .ALUresult_out(alu_result_memory)
    );
@@ -151,14 +144,22 @@ module top (
 
 	 MemoryWriteback_register MemoryWriteback_register_instance (
       .clk(clk),
-		.reset(reset),
       .calcData_in(alu_result_memory),
       .calcData_out(calcData_writeback)
    );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-	
-	
-	
+
+
+    
+    always #10 clk = ~clk;
+    initial begin
+        
+		  #100;
+        
+        // Finalizar la simulación
+        $finish;
+    end
+
 endmodule

@@ -1,7 +1,9 @@
 module controlUnit (
     input logic [3:0] opCode,
-	 output logic wre,	// write register enable
-	 output logic [3:0] aluOp	// operacion que debe realizar la ALU
+	 //input logic flagN,	// negative result flagN = 1
+	 //input logic flagZ,	// zero result flagZ = 1
+    output logic wre,	// write register enable
+	 output logic [3:0] aluOp,	// operacion que debe realizar la ALU
 );
 
     // Definición de las salidas en función del opCode

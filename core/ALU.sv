@@ -10,14 +10,14 @@ module ALU (
 
     // Instanciar los módulos adder y subtractor
     adder u_adder (
-        .a(operand_A),
-        .b(operand_B),
+        .a(srcA),
+        .b(srcB),
         .y(add_result)
     );
 
     // Selección de la operación basada en ALUop
     always_comb begin
-        case (ALUop)
+        case (aluOp)
             4'b0000: result = 4'b0000; // nop/stall
             4'b0001: result = add_result; // Suma
             default: result = 16'h0000; // Manejo de caso inválido

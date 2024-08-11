@@ -1,5 +1,5 @@
 Analysis & Elaboration report for CPU-Pipelined
-Thu Aug 08 11:52:01 2024
+Sat Aug 10 20:19:23 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -14,8 +14,12 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   6. Parameter Settings for User Entity Instance: ROM:rom_memory|altsyncram:altsyncram_component
   7. altsyncram Parameter Settings by Entity Instance
   8. Analysis & Elaboration Settings
-  9. Port Connectivity Checks: "FetchDecode_register:FetchDecode_register_instance"
- 10. Analysis & Elaboration Messages
+  9. Port Connectivity Checks: "MemoryWriteback_register:MemoryWriteback_register_instance"
+ 10. Port Connectivity Checks: "ALU:ALU_instance"
+ 11. Port Connectivity Checks: "DecodeExecute_register:DecodeExecute_register_instance"
+ 12. Port Connectivity Checks: "Regfile_scalar:regfile_instance"
+ 13. Port Connectivity Checks: "controlUnit:control_unit_instance"
+ 14. Analysis & Elaboration Messages
 
 
 
@@ -42,7 +46,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Thu Aug 08 11:52:01 2024       ;
+; Analysis & Elaboration Status ; Successful - Sat Aug 10 20:19:23 2024       ;
 ; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                 ; CPU-Pipelined                               ;
 ; Top-level Entity Name         ; top                                         ;
@@ -259,13 +263,50 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "FetchDecode_register:FetchDecode_register_instance"                                            ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; instruction_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MemoryWriteback_register:MemoryWriteback_register_instance"                                 ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; calcData_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance"                                                                                                                                                                  ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; aluOp ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (4 bits) it drives.  The 12 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DecodeExecute_register:DecodeExecute_register_instance"                                                                                                                                 ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; aluOp_in  ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (4 bits) it drives.  The 12 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; aluOp_out ; Output ; Warning  ; Output or bidir port (4 bits) is smaller than the port expression (16 bits) it drives.  The 12 most-significant bit(s) in the port expression will be connected to GND.            ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Regfile_scalar:regfile_instance"                                                    ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; rd3  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlUnit:control_unit_instance"                                                                                                                                       ;
++-------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                                                 ;
++-------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; aluOp ; Output ; Warning  ; Output or bidir port (4 bits) is smaller than the port expression (16 bits) it drives.  The 12 most-significant bit(s) in the port expression will be connected to GND. ;
++-------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------+
@@ -274,7 +315,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Aug 08 11:51:23 2024
+    Info: Processing started: Sat Aug 10 20:19:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU-Pipelined -c CPU-Pipelined --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -296,11 +337,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file memory/
     Info (12023): Found entity 1: ROM File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file memory/ram.v
     Info (12023): Found entity 1: RAM File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file core/regfile_scalar.sv
+    Info (12023): Found entity 1: Regfile_scalar File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/Regfile_scalar.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/controlunit.sv
+    Info (12023): Found entity 1: controlUnit File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/decodeexecute_register.sv
+    Info (12023): Found entity 1: DecodeExecute_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/alu.sv
+    Info (12023): Found entity 1: ALU File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/adder.sv
+    Info (12023): Found entity 1: adder File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/adder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/executememory_register.sv
+    Info (12023): Found entity 1: ExecuteMemory_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/memorywriteback_register.sv
+    Info (12023): Found entity 1: MemoryWriteback_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/add_tb.sv
+    Info (12023): Found entity 1: Add_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/Add_tb.sv Line: 2
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 22
-Info (12128): Elaborating entity "PC_adder" for hierarchy "PC_adder:pc_add" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 29
-Info (12128): Elaborating entity "mux_2inputs" for hierarchy "mux_2inputs:mux_2inputs_PC" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 37
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 44
+Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 39
+Info (12128): Elaborating entity "PC_adder" for hierarchy "PC_adder:pc_add" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 45
+Info (12128): Elaborating entity "mux_2inputs" for hierarchy "mux_2inputs:mux_2inputs_PC" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 52
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 58
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 81
 Info (12130): Elaborated megafunction instantiation "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 81
 Info (12133): Instantiated megafunction "ROM:rom_memory|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 81
@@ -327,11 +384,196 @@ Info (12128): Elaborating entity "decode_61a" for hierarchy "ROM:rom_memory|alts
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/db/mux_chb.tdf Line: 23
 Info (12128): Elaborating entity "mux_chb" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|mux_chb:mux2" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/db/altsyncram_q4g1.tdf Line: 41
-Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 51
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4791 megabytes
-    Info: Processing ended: Thu Aug 08 11:52:01 2024
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:37
+Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 67
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control_unit_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 82
+Info (12128): Elaborating entity "Regfile_scalar" for hierarchy "Regfile_scalar:regfile_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 95
+Info (12128): Elaborating entity "DecodeExecute_register" for hierarchy "DecodeExecute_register:DecodeExecute_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 118
+Warning (10230): Verilog HDL assignment warning at DecodeExecute_register.sv(21): truncated value with size 16 to match size of target (4) File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv Line: 21
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 127
+Info (12128): Elaborating entity "adder" for hierarchy "ALU:ALU_instance|adder:u_adder" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv Line: 16
+Info (12128): Elaborating entity "ExecuteMemory_register" for hierarchy "ExecuteMemory_register:ExecuteMemory_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 139
+Info (12128): Elaborating entity "MemoryWriteback_register" for hierarchy "MemoryWriteback_register:MemoryWriteback_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 157
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_decode[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_decode[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_decode[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_decode[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_decode[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUop_decode[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_decode[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 17
+    Warning (12110): Net "ALUop_execute[15]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[14]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[13]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[12]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[11]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[10]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[9]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[8]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[7]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[6]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[5]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+    Warning (12110): Net "ALUop_execute[4]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 18
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 179 warnings
+    Info: Peak virtual memory: 4774 megabytes
+    Info: Processing ended: Sat Aug 10 20:19:23 2024
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:35
 
 

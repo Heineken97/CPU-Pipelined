@@ -1,5 +1,6 @@
 module DecodeExecute_register (
     input logic clk,
+	 input logic reset,
 	 input logic [3:0] aluOp_in,	 
 	 input logic [15:0] srcA_in,
 	 input logic [15:0] srcB_in,
@@ -16,9 +17,15 @@ module DecodeExecute_register (
     
     // Proceso de escritura en el registro
     always_ff @(posedge clk) begin
-        aluOp <= aluOp_in;		  
-		  srcA <= srcA_in;
-		  srcB <= srcB_in;
+		  if (reset) begin
+            aluOp <= 16'b0;		  
+				srcA <= 16'b0;
+				srcB <= 16'b0;
+		  end else begin
+				aluOp <= aluOp_in;		  
+				srcA <= srcA_in;
+				srcB <= srcB_in;
+		  end
     end
 
     // Salidas del registro
