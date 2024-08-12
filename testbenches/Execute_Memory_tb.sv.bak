@@ -1,0 +1,120 @@
+module Execute_Memory_tb;
+    logic clk = 0;
+    logic reset = 0;
+    
+    // Interconexiones
+    logic [15:0] alu_result;
+    logic [15:0] srcB_execute;
+    logic [15:0] data_memory_in;
+    logic [15:0] data_memory_out;
+    logic [3:0] reg_dest_execute;
+    
+    // Senales de Control
+    logic wbs_execute; 
+    logic mm_execute;
+    logic wm_execute;
+    logic am_execute;
+    logic ni_execute;
+    
+    // Registro Execute
+    logic wbs_memory; 
+    logic mm_memory;
+    logic wm_memory;
+    logic am_memory;
+    logic ni_memory;
+    logic [15:0] alu_result_memory;
+    logic [15:0] data_memory_memory;
+    logic [3:0] reg_dest_memory;
+
+    // Instanciar el módulo de ALU
+    ALU alu_instance (
+        .srcA(srcA_execute),
+        .srcB(srcB_execute),
+        .ALUop(ALUop_execute),
+        .result(alu_result)
+    );
+
+    // Instanciar el módulo de Data Memory
+    DataMemory data_memory_instance (
+        .clk(clk),
+        .address(alu_result),
+        .write_data(srcB_execute),
+        .read_data(data_memory_out),
+        .mem_write(wm_execute),
+        .mem_read(mm_execute)
+    );
+
+    // Instanciar Registro Pipeline Execute-Memory
+    ExecuteMemory_register ExecuteMemory_register_instance (
+        .clk(clk),
+        .reset(reset),
+        .wbs_in(wbs_execute),
+        .mm_in(mm_execute),
+        .wm_in(wm_execute),
+        .am_in(am_execute),
+        .ni_in(ni_execute),
+        .alu_result_in(alu_result),
+        .data_memory_in(data_memory_out),
+        .reg_dest_in(reg_dest_execute),
+        
+        .wbs_out(wbs_memory),
+        .mm_out(mm_memory),
+        .wm_out(wm_memory),
+        .am_out(am_memory),
+        .ni_out(ni_memory),
+        .alu_result_out(alu_result_memory),
+        .data_memory_out(data_memory_memory),
+        .reg_dest_out(reg_dest_memory)
+    );
+
+    always #10 clk = ~clk;
+    
+    initial begin
+        // Test Case 1: add rd=0, rs1=1, rs2=2 Tipo R
+        srcA_execute = 16'b0000000000000010; // Simulated source A
+        srcB_execute = 16'b0000000000000011; // Simulated source B
+        ALUop_execute = 3'b010; // ALU operation code for ADD
+        reg_dest_execute = 4'b0000; // Destination register
+        
+        $display("\n *** Test Case 1 *** \n");
+        $display("ADD operation between srcA=2 and srcB=3 \n");
+        #20;
+        $display("ALU Result = %b", alu_result);
+        $display("Data Memory Output = %b", data_memory_out);
+        $display("Register Destination = %b", reg_dest_execute);
+        
+        #20;
+
+        // Test Case 2: mov rd=2 inmediato=9 Tipo I
+        srcA_execute = 16'b0000000000000000; // Simulated source A (not used)
+        srcB_execute = 16'b0000000000001001; // Simulated immediate value
+        ALUop_execute = 3'b000; // ALU operation code for MOV
+        reg_dest_execute = 4'b0010; // Destination register
+        
+        $display("\n *** Test Case 2 *** \n");
+        $display("MOV operation with immediate value 9 \n");
+        #20;
+        $display("ALU Result = %b", alu_result);
+        $display("Data Memory Output = %b", data_memory_out);
+        $display("Register Destination = %b", reg_dest_execute);
+
+        #20;
+
+        // Test Case 3: bgt address=5 Tipo J
+        srcA_execute = 16'b0000000000000100; // Simulated address for branch
+        srcB_execute = 16'b0000000000000000; // Simulated source B (not used)
+        ALUop_execute = 3'b011; // ALU operation code for BGT
+        reg_dest_execute = 4'b0000; // Destination register (not used)
+        
+        $display("\n *** Test Case 3 *** \n");
+        $display("Branch if Greater Than operation with address 5 \n");
+        #20;
+        $display("ALU Result = %b", alu_result);
+        $display("Data Memory Output = %b", data_memory_out);
+        $display("Register Destination = %b", reg_dest_execute);
+
+        #20;
+
+        $finish;
+    end
+endmodule
