@@ -1,31 +1,286 @@
 module controlUnit (
-    input logic [3:0] opCode,
-	 output logic wre,	// write register enable
-	 output logic [3:0] aluOp	// operacion que debe realizar la ALU
+    input logic [3:0] opCode, // Codigo de Operacion instruccion
+    output logic wbs,			// writeback source
+    output logic mm,				// memory or mov
+    output logic [2:0] ALUop, // Codigo de Operacion ALU
+    output logic [1:0] ri,		// register or immediate
+    output logic wre,			// write register enable
+	 output logic wm,				// write or mov
+	 output logic am,				// address or mov
+	 output logic ni,				// next instruction
+	 output logic wme,			// write memory enable Data
+	 output logic alu_mux,		// alu_result vs read_address_or_data 
+	 output logic alu_mux1,		// srcA vs alu_result
+	 output logic rde				// register destiny enable
 );
-
-    // Definición de las salidas en función del opCode
-    always_comb begin
-        case (opCode)
-		  
-				// nop/stall
-            4'b0000: begin
-                wre = 1'b0;
-					 aluOp =4'b0000;
-            end
+	// Definición de las salidas en función del opCode
+	always_comb begin
+		wbs = 1'bx;
+		mm = 1'bx;
+		ALUop = 3'bxxx;
+		ri = 2'bxx;
+		wre = 1'bx;
+		wm = 1'bx;
+		am = 1'bx;
+		ni = 1'bx;
+		wme = 1'bx;
+		alu_mux = 1'bx;
+		alu_mux1 = 1'bx;
+		rde = 1'bx;
+		case (opCode)
+			// sub
+			4'b0000: begin
+				wbs = 1'b1; 			//Uso de CalcData no de MemData
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b000;	
+            ri = 2'b00;				//Usa el RD2 de RegisterFile
+            wre = 1'b1;				//Usa RegisterFile
+				wm = 1'b0;				//Usa WriteRegisterData
+				am = 1'bx;				//No aplica Address or Mov
+				ni = 1'b0;				//Siguiente instruccion del PC y no JumpAddress
+				wme = 1'bx;				//No aplica escritura en Memoria
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b1;			   //Activa rd
+			end
+			// add
+         4'b0001: begin
+            wbs = 1'b1;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b001;
+            ri = 2'b00;				//Usa el RD2 de RegisterFile
+            wre = 1'b1;				//Usa RegisterFile
+				wm = 1'b0;				//Usa WriteRegisterData
+				am = 1'bx;				//No aplica Address or Mov
+				ni = 1'b0;				//Siguiente instruccion del PC y no JumpAddress
+				wme = 1'bx;				//No aplica escritura en Memoria
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b1;			   //Activa rd
+         end
+			// lsl
+         4'b0010: begin
+            wbs = 1'b1;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b010;
+            ri = 2'b11;				//Usa el Extension de Cero
+            wre = 1'b1;				//Usa RegisterFile
+				wm = 1'b0;				//Usa WriteRegisterData
+				am = 1'bx;				//No aplica Address or Mov
+				ni = 1'b0;				//Siguiente instruccion del PC y no JumpAddress
+				wme = 1'bx;				//No aplica escritura en Memoria
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end	
+			// neg
+			4'b0011: begin
+            wbs = 1'b1;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b011;
+            ri = 2'b00;
+            wre = 1'b1;
+				wm = 1'b0;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end	
+			// beq
+			4'b0100: begin
+            wbs = 1'bx;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'bxxx;
+            ri = 2'b11;
+            wre = 1'b0;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end  
+			// bgt
+         4'b0101: begin
+            wbs = 1'bx;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'bxxx;
+            ri = 2'b11;
+            wre = 1'b0;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
+			// blt
+         4'b0110: begin
+            wbs = 1'bx;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'bxxx;
+            ri = 2'b11;
+            wre = 1'b0;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'bx;
+				rde =1'b0;			   //
+         end
+			// b
+			4'b0111: begin
+            wbs = 1'bx;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'bxxx;
+            ri = 2'b11;
+            wre = 1'b0;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
+			// movi
+			4'b1000: begin
+            wbs = 1'b1;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'bxxx;
+            ri = 2'b10;
+            wre = 1'b1;
+				wm = 1'b0;			
+				am = 1'b1;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
+			// ldr
+         4'b1001: begin
+            wbs = 1'b0;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b100;
+            ri = 2'b10;
+            wre = 1'b1;
+				wm = 1'b1;
+				am = 1'b0;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
+			// str
+         4'b1010: begin
+            wbs = 1'bx;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b100;
+            ri = 2'b10;
+            wre = 1'b1;
+				wm = 1'bx;
+				am = 1'b1;
+				ni = 1'b0;
+				wme = 1'b1;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
+			// cmp
+			4'b1011: begin
+            wbs = 1'b1;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b101;
+            ri = 2'b00;
+            wre = 1'b1;
+				wm = 1'b0;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
+			// movr
+			4'b1100: begin
+            wbs = 1'b1;
+            mm = 1'b0;				//No pasa por memoria de datos
+            ALUop = 3'b011;
+            ri = 2'b00;
+            wre = 1'b1;
+				wm = 1'b0;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'b0;			//Uso de Alu_result no de read
+				alu_mux1 =1'b1;		//Uso de Alu_result no de srcA
+				rde =1'b0;			   //
+         end
             
-				// add
-            4'b0001: begin
-                wre = 1'b1;
-					 aluOp =4'b0001;
-            end
+			////////////////////// NO HA SIDO ASIGNADO //////////////////////
+         4'b1101: begin
+				wbs = 1'bx;
+            mm = 1'bx;
+            ALUop = 3'bxxx;
+            ri = 2'bxx;
+            wre = 1'bx;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'bx; 
+				wme = 1'bx;
+				alu_mux =1'bx;	
+				alu_mux1 =1'bx;
+				rde =1'bx;			   		
+         end
+         4'b1110: begin
+            wbs = 1'bx;
+            mm = 1'bx;	
+            ALUop = 3'bxxx;
+            ri = 2'bxx;
+            wre = 1'bx;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'bx;
+				wme = 1'bx;
+				alu_mux =1'bx;		
+				alu_mux1 =1'bx;
+				rde =1'bx;		
+         end
+			4'b1111: begin
+            wbs = 1'bx;
+            mm = 1'bx;				
+            ALUop = 3'bxxx;
+            ri = 2'bxx;
+            wre = 1'bx;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'b0;
+				wme = 1'bx;
+				alu_mux =1'bx;			
+				alu_mux1 =1'bx;
+				rde =1'bx;		
+         end
             
-            
-            default: begin
-                wre = 1'b0;
-					 aluOp =4'b0000;
-            end
-        endcase
-    end
-
+         default: begin
+				wbs = 1'bx;
+            mm = 1'bx;
+            ALUop = 3'bxxx;
+            ri = 2'bxx;
+            wre = 1'bx;
+				wm = 1'bx;
+				am = 1'bx;
+				ni = 1'bx;
+				wme = 1'bx;
+				alu_mux =1'bx;			
+				alu_mux1 =1'bx;
+				rde =1'bx;		
+         end
+		endcase
+	end
 endmodule
