@@ -5,7 +5,6 @@ module top (
     input logic [15:0] offset,
     output logic [15:0] ROM_data
 );
-
    // Interconexiones
    logic [15:0] pc_address;
    logic [15:0] pc_incremented;
@@ -47,17 +46,24 @@ module top (
 	//Extension de Zero
 	logic [15:0] ZeroExtImmediate;
 	//Registros
-	logic [15:0] wd3;
 	logic [15:0] rd1, rd2, rd3;
 	//Registro Memory
 	logic wbs_memory;   
 	logic mm_memory;
 	logic alu_result_memory;
-	logic write_Data_memory;
 	logic wm_memory;
 	logic ni_memory;	
 	logic wme_memory; 
-
+	logic [3:0] reg_dest_memory;
+	logic [15:0] address_memory;
+	logic [15:0] write_Data_memory;
+	logic [15:0] write_register_Data_memory;
+	logic [15:0] mem_Data_memory;
+	logic reg_dest_writeback;
+	logic wre_writeback;
+	logic [15:0] mem_Data_writeback;
+	logic [15:0] calcData_writeback;
+	logic [15:0] data_writeback;
 
     // Instanciar el módulo PC_register
     PC_register pc_reg (
@@ -140,7 +146,7 @@ module top (
       .a1(instruction_decode[3:0]),
       .a2(instruction_decode[7:4]),
       .a3(mux_output_2),
-      .wd3(wd3),
+      .wd3(reg_dest_data_writeback),
       .rd1(rd1),
       .rd2(rd2),
       .rd3(rd3)
@@ -218,13 +224,12 @@ module top (
 		.clk(clk),
       .wbs_in(wbs_execute),
       .mm_in(mm_execute),
-      .ALUresult_in(output_execute), 
+      .ALUresult_in(output_alu_mux), 
       .memData_in(write_Data_execute),
       .wm_in(wm_execute),
       .ni_in(ni_execute),
 		.wme_in(wme_execute),
 		.reg_dest_in(reg_dest_execute),
-		.reg_dest_data_writeback_in(reg_dest_data_execute),
       .wbs_out(wbs_memory),
       .mm_out(mm_memory),
       .ALUresult_out(alu_result_memory),
@@ -232,31 +237,50 @@ module top (
       .wm_out(wm_memory),
       .ni_out(ni_memory),
 		.wme_out(wme_memory),
-		.reg_dest_out(reg_dest_memory),
-		.reg_dest_data_writeback_out(reg_dest_data_memory)
+		.reg_dest_out(reg_dest_memory)
    );
 	
 	decoderMemory decoderExecute_instance (
 		.data_in(alu_result_memory),
       .select(mm_memory),
-      .data_out_0(address_coordinates_memory), 
-      .data_out_1(write_Data_memory)
+      .data_out_0(address_memory), 
+      .data_out_1(write_register_Data_memory)
    );
 	
 	mux_2 mux_2_instance_memory (
-      .data0(write_Data_memory),
-      .data1(reg_dest_memory), 
+      .data0(write_register_Data_memory),
+      .data1(write_Data_memory), 
       .select(wm_memory),
       .out(output_memory_mux)
    );	
-	/***
+
 	RAM ram_datos_instance(
-		.address(address_coordinates_memory),
+		.address(address_memory),
 		.clock(clk),
-		.data(16'b0),			// Nunca se escribe, solo se lee (se coloca un 0 porque no puede quedar vacio)
-		.wren(wce_memory),   // Nunca se escribe, solo se lee = 1'b0
-		.q(readCoordinate)
+		.data(16'b0),			
+		.wren(wme_memory),   
+		.q(mem_Data_memory)
 	);	
-	***/
+
+	MemoryWriteback_register MemoryWriteback_register_instance (
+		.clk(clk),
+      .wbs_in(wbs_memory),
+      .memData_in(mem_Data_memory),
+      .calcData_in(output_memory_mux),
+      .ni_in(ni_memory), 
+		.reg_dest_in(reg_dest_memory),
+      .wbs_out(wbs_writeback),
+      .memData_out(data_writeback),
+      .calcData_out(calcData_writeback),
+      .ni_out(ni_writeback),
+		.reg_dest_out(reg_dest_writeback)
+   );
+	
+	mux_2 mux_2_instance_writeback (
+      .data0(data_writeback),
+      .data1(calcData_writeback), 
+      .select(wbs_writeback),
+      .out(reg_dest_data_writeback)
+   );
 	 
 endmodule
