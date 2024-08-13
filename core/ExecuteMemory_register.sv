@@ -15,8 +15,7 @@ module ExecuteMemory_register(input logic clk,
    output logic wm_out,
    output logic ni_out,
 	output logic wme_out,
-	output logic  [4:0] reg_dest_out,
-	output logic  [4:0] reg_dest_data_writeback_out
+	output logic  [4:0] reg_dest_out
 );
 	logic wbs;
 	logic mm;
@@ -37,7 +36,6 @@ module ExecuteMemory_register(input logic clk,
 		ni 							<= ni_in;
 		wme 							<= wme_in;
 		reg_dest 					<= reg_dest_in;
-		reg_dest_data_writeback <= reg_dest_data_writeback_in;
 	end
 	// Salidas del registro
    assign wbs_out 							= wbs;
@@ -48,5 +46,4 @@ module ExecuteMemory_register(input logic clk,
 	assign ni_out 								= ni;
    assign wme_out 							= wme;
 	assign reg_dest_out 						= reg_dest;
-	assign reg_dest_data_writeback_out  = reg_dest_data_writeback;
 endmodule
