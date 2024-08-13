@@ -1,3 +1,4 @@
+`timescale 1ps/1ps
 module Decode_Stage_tb;
 	logic clk = 0;
 	logic reset = 0;
