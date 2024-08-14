@@ -6,15 +6,15 @@ module top (
     output logic [15:0] ROM_data
 );
    // Interconexiones
-   logic [15:0] pc_address;
+	logic [15:0] pc_address = 16'b0;
    logic [15:0] pc_incremented;
-   logic [15:0] mux_output;
 	logic select_next_PC = 0;
-
+   logic [15:0] mux_output;
 	logic [15:0] read_addres_or_data;
 	logic [15:0] write_Data_execute;
-	logic [3:0] out_mux4, mux_output_2;
-	logic [3:0] reg_dest_data_writeback;
+	logic [3:0]  mux_output_2;
+	logic [15:0] out_mux4;
+	logic [15:0] reg_dest_data_writeback;
 	// Registro Fetch
 	logic [15:0] instruction_fetch;
 	logic [15:0] instruction_decode;
@@ -29,7 +29,6 @@ module top (
    logic ni_decode;
 	logic wme_decode;
 	logic alu_mux_decode,alu_mux1_decode;
-	logic [3:0] reg_dest_decode;
 	// Registro Execute
 	logic [15:0] alu_result;
 	logic wbs_execute; 
@@ -94,7 +93,7 @@ module top (
     ROM rom_memory (
         .address(pc_address),
         .clock(clk),
-        .q(ROM_data)
+        .q(instruction_fetch)
     );
 	 
 	 //Instanciar Modulo de Etapa Fetch
@@ -138,7 +137,7 @@ module top (
 	//Mux
 	mux_2inputs mux_2_regfile (
         .data0(instruction_decode[11:8]),
-        .data1(reg_dest_data_writeback),
+        .data1(reg_dest_writeback),
         .select(reg_dest_enable),		
         .out(mux_output_2)	
     );
