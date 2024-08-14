@@ -9,6 +9,8 @@ module top (
    logic [15:0] pc_address;
    logic [15:0] pc_incremented;
    logic [15:0] mux_output;
+	logic select_next_PC = 0;
+
 	logic [15:0] read_addres_or_data;
 	logic [15:0] write_Data_execute;
 	logic [3:0] out_mux4, mux_output_2;
@@ -82,9 +84,9 @@ module top (
 
     // Instanciar el módulo mux_2inputs
     mux_2inputs mux_2inputs_PC (
-        .data0(pc_address),
-        .data1(pc_incremented),
-        .select(select),
+        .data0(pc_incremented),
+        .data1(srcB_execute),
+        .select(select_next_PC),
         .out(mux_output)
     );
 
@@ -106,6 +108,7 @@ module top (
 	 //Instanciar Unidad de Control
 	 controlUnit control_unit_instance (
       .opCode(instruction_decode[15:12]),
+		.selectNextPC(select_next_PC),
       .wbs(wbs_decode),
       .mm(mm_decode),
       .ALUop(ALUop_decode),
@@ -282,5 +285,5 @@ module top (
       .select(wbs_writeback),
       .out(reg_dest_data_writeback)
    );
-	 
+
 endmodule
