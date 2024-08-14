@@ -36,7 +36,7 @@ module controlUnit (
 				wbs = 1'b1; 			//Uso de CalcData no de MemData
             mm = 1'b0;				//No pasa por memoria de datos
             ALUop = 3'b000;	
-            ri = 2'b01;				//Usa el RD2 de RegisterFile
+            ri = 2'b00;				//Usa el RD2 de RegisterFile
             wre = 1'b1;				//Usa RegisterFile
 				wm = 1'b0;				//Usa WriteRegisterData
 				am = 1'bx;				//No aplica Address or Mov
@@ -52,7 +52,7 @@ module controlUnit (
             wbs = 1'b1;
             mm = 1'b0;				//No pasa por memoria de datos
             ALUop = 3'b001;
-            ri = 2'b01;				//Usa el RD2 de RegisterFile
+            ri = 2'b00;				//Usa el RD2 de RegisterFile
             wre = 1'b1;				//Usa RegisterFile
 				wm = 1'b0;				//Usa WriteRegisterData
 				am = 1'bx;				//No aplica Address or Mov
@@ -84,7 +84,7 @@ module controlUnit (
             wbs = 1'b1;
             mm = 1'b0;				//No pasa por memoria de datos
             ALUop = 3'b011;
-            ri = 2'b00;
+            ri = 2'b10;
             wre = 1'b1;
 				wm = 1'b0;
 				am = 1'bx;
@@ -100,7 +100,7 @@ module controlUnit (
             wbs = 1'bx;
             mm = 1'b0;				//No pasa por memoria de datos
             ALUop = 3'bxxx;
-            ri = 2'b11;
+            ri = 2'b01;
             wre = 1'b0;
 				wm = 1'bx;
 				am = 1'bx;
