@@ -21,12 +21,24 @@ module top (
 	logic [15:0] instruction_fetch;
 	logic [15:0] instruction_decode;
 
+	// unidad de control
+	logic wre_decode;
+	logic write_memory_enable_decode;
+	logic [1:0] writeback_data_mux_decode;
 
 
 
-
-
-
+	// mux de la unidad de control
+	logic [6:0] nop_mux_output;
+	logic [1:0] select_nop_mux;
+	
+	
+	
+	
+	
+	
+	
+	
 
     // Interconexiones
     
@@ -36,7 +48,7 @@ module top (
 	 
 	
 	 
-	 logic wre;
+	 
 	logic [15:0] ALUop_decode;
 	logic [15:0] ALUop_execute;
 	logic [15:0] rd1;
@@ -55,7 +67,8 @@ module top (
 
 
 // Inicialización
-	pc_offset = 16b'1;
+	pc_offset = 16'b0000000000000001;
+
 
 	
 	
@@ -110,23 +123,29 @@ module top (
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////	
 	 
+	  
 	 
 	 
-	 
-	 
-	 
-	 
-	 
-	 	controlUnit control_unit_instance (
+	 controlUnit control_unit_instance (
       .opCode(instruction_decode[15:12]),
-		 .wre(wre),
-      .aluOp(ALUop_decode)     
+		.control_signals(control_signals)
     );
+	 
+// mux que elige entre las señales de control y los stalls
+    mux_2inputs mux_2inputs_nop (
+        .data0(7'b0),
+        .data1(control_signals),
+        .select(select_nop_mux),
+        .out(nop_mux_output)
+    );
+	 
+	 
+	
 	 
 	 
 	 Regfile_scalar regfile_instance (
       .clk(clk),
-      .wre(wre),
+      .wre(wre xs xsas sxax),
       .a1(instruction_decode[3:0]),
       .a2(instruction_decode[7:4]),
       .a3(instruction_decode[11:8]),
