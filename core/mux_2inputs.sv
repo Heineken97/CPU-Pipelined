@@ -1,9 +1,15 @@
 module mux_2inputs (
-	input logic [15:0] data0, data1,
-	input logic select,
-	output logic [15:0] out
+    input logic [15:0] data0, data1,
+    input logic [1:0] select,
+    output logic [15:0] out
 );
 
-	assign out = select ? data1 : data0;
+    always_comb begin
+        case(select)
+            2'b00: out = data0;
+            2'b01: out = data1;
+            default: out = 16'h0000;
+        endcase
+    end
 
 endmodule

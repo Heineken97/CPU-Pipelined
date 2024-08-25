@@ -1,17 +1,40 @@
 module top (
     input logic clk,
-    input logic reset,
-    input logic select,
-    input logic [15:0] offset,
-    output logic [15:0] ROM_data
+    input logic reset
 );
 
+	// registro PC
+	logic [15:0] pc_mux_output;
+	logic [15:0] pc_address;
+	logic nop;
+
+	// sumador del PC
+	logic [15:0] pc_offset;
+	logic [15:0] pc_incremented;
+	
+	
+	// mux del PC
+	logic [1:0] select_pc_mux;   // esta señal de control viene del comparador entre rs1 y rs2
+	logic [15:0] branch_address;
+
+	// registro Fetch-Decode
+	logic [15:0] instruction_fetch;
+	logic [15:0] instruction_decode;
+
+
+
+
+
+
+
+
     // Interconexiones
-    logic [15:0] pc_address;
-    logic [15:0] pc_incremented;
-    logic [15:0] mux_output;
-	 logic [15:0] instruction_fetch;
-	 logic [15:0] instruction_decode;
+    
+    
+    
+	 
+	 
+	
 	 
 	 logic wre;
 	logic [15:0] ALUop_decode;
@@ -30,30 +53,49 @@ module top (
 	
 //////////////////////////////////////////////////////////////////////////////
 
-    PC_register pc_reg (
+
+// Inicialización
+	pc_offset = 16b'1;
+
+	
+	
+	
+	
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+// sumador del PC
+	PC_adder pc_add (
+        .address(pc_address),
+        .offset(pc_offset),
+        .PC(pc_incremented)
+    );
+	 
+// mux que elige entre el PC+1 o un branch
+    mux_2inputs mux_2inputs_PC (
+        .data0(pc_incremented),
+        .data1(branch_address),
+        .select(select_pc_mux),
+        .out(pc_mux_output)
+    );
+	 
+	 PC_register pc_reg (
         .clk(clk),
         .reset(reset),
-        .address_in(mux_output),
+		  .nop(nop),
+        .address_in(pc_mux_output),
         .address_out(pc_address)
     );
 
-    PC_adder pc_add (
-        .address(pc_address),
-        .offset(offset),
-        .PC(pc_incremented)
-    );
+    
 
-    mux_2inputs mux_2inputs_PC (
-        .data0(pc_address),
-        .data1(pc_incremented),
-        .select(select),
-        .out(mux_output)
-    );
+    
 
     ROM rom_memory (
         .address(pc_address),
         .clock(clk),
-        .q(ROM_data)
+        .q(instruction_fetch)
     );
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +103,7 @@ module top (
 	 FetchDecode_register FetchDecode_register_instance (
         .clk(clk),
 		  .reset(reset),
+		  .nop(nop),
         .instruction_in(instruction_fetch),
         .instruction_out(instruction_decode)
     );
