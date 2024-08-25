@@ -35,6 +35,9 @@ module top (
 	// banco de registros
 	logic [15:0] writeback_data;
 	logic logic wre_writeback;
+	logic [15:0] rd1;
+	logic [15:0] rd2;
+	logic [15:0] rd3;
 	
 	// extensor de signo
 	logic [15:0] extended_label;
@@ -42,39 +45,51 @@ module top (
 	// sumador branch
 	logic [15:0] pc_decode;
 	
+	// registro Decode-Execute
+	logic wre_execute;
+	logic write_memory_enable_execute;
+	logic [1:0] select_writeback_data_mux_execute;
+	logic [3:0] aluOp_execute;
+	logic [3:0] rs1_execute; // entrada a la unidad de adelantamiento
+	logic [3:0] rs2_execute; // entrada a la unidad de adelantamiento
+	logic [3:0] rd_execute; // entrada a la unidad de adelantamiento
 	
+	// alu
+	logic [15:0] alu_src_A;
+	logic [15:0] alu_src_B;
+	logic [15:0] alu_result_execute;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-    // Interconexiones
-    
-    
-    
-	 
-	 
-	
-	 
-	 
-	logic [15:0] ALUop_decode;
-	logic [15:0] ALUop_execute;
-	logic [15:0] rd1;
-	logic [15:0] rd2;
-	logic [15:0] rd3;
-	
+	// mux's de la alu
 	logic [15:0] srcA_execute;
 	logic [15:0] srcB_execute;
 	
-	logic [15:0] alu_result_execute;
+	// registro Execute-Memory
+	logic wre_memory;
+	logic [1:0] select_writeback_data_mux_memory;
+	logic write_memory_enable_memory;
 	logic [15:0] alu_result_memory;
+	logic [15:0] srcA_memory;
+	logic [15:0] srcB_memory;
+	logic [3:0] rd_memory;
+		
+	
+	// unidad de adelantamiento
+	logic [2:0] select_forward_mux_A;
+	logic [2:0] select_forward_mux_B;
+	
+
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -144,7 +159,7 @@ module top (
 // mux que elige entre las señales de control y los stalls
     mux_2inputs mux_2inputs_nop (
         .data0(7'b0),
-        .data1(control_signals),
+        .data1({9'b0, control_signals}),
         .select(select_nop_mux),
         .out(nop_mux_output)
     );
@@ -184,33 +199,67 @@ module top (
 	 DecodeExecute_register DecodeExecute_register_instance (
 		.clk(clk),
 		.reset(reset),
-      .aluOp_in(ALUop_decode),
+      .nop_mux_output(nop_mux_output),
       .srcA_in(rd1),
 		.srcB_in(rd2),
-		.aluOp_out(ALUop_execute),
+		.rs1_decode(instruction_decode[3:0]),
+		.rs2_decode(instruction_decode[7:4]),
+		.rd_decode(instruction_decode[11:8]),
+		.wre_execute(wre_execute),
+      .write_memory_enable_execute(write_memory_enable_execute),
+      .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
+      .aluOp_execute(aluOp_execute),
       .srcA_out(srcA_execute),
-		.srcB_out(srcB_execute)
+		.srcB_out(srcB_execute),
+		.rs1_execute(rs1_execute),  // entrada a la unidad de adelantamiento
+		.rs2_execute(rs2_execute), // entrada a la unidad de adelantamiento
+		.rd_execute(rd_execute) 
    );
           
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+	 mux_3inputs mux_alu_forward_A (
+        .data0(srcA_execute),
+        .data1(writeback_data),
+        .data2(alu_result_memory),
+        .select(select_forward_mux_A),
+        .out(alu_src_A)
+    );
+	 
+	 mux_3inputs mux_alu_forward_B (
+        .data0(srcB_execute),
+        .data1(writeback_data),
+        .data2(alu_result_memory),
+        .select(select_forward_mux_B),
+        .out(alu_src_B)
+    );
+
 	ALU ALU_instance (
-      .aluOp(ALUop_execute),       
-      .srcA(srcA_execute),
-      .srcB(srcB_execute),
+      .aluOp(aluOp_execute),       
+      .srcA(alu_src_A),
+      .srcB(alu_src_B),
       .result(alu_result_execute)
    );
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 	  ExecuteMemory_register ExecuteMemory_register_instance (
 		.clk(clk),
 		.reset(reset),
+      .wre_execute(wre_execute),
+	   .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
+	   .write_memory_enable_execute(write_memory_enable_execute),
       .ALUresult_in(alu_result_execute),
-      .ALUresult_out(alu_result_memory)
+	   .srcA_execute(srcA_execute),
+	   .srcB_execute(srcB_execute),
+	   .rd_execute(rd_execute),
+	   .wre_memory(),
+	   .select_writeback_data_mux_memory(),
+	   .write_memory_enable_memory(),
+	   .ALUresult_out(alu_result_memory),
+	   .srcA_memory(srcA_memory),
+	   .srcB_memory(srcB_memory),
+	   .rd_memory(rd_memory)
    );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
