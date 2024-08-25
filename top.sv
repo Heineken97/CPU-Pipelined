@@ -34,12 +34,23 @@ module top (
 	
 	// banco de registros
 	logic [15:0] writeback_data;
+	logic logic wre_writeback;
 	
 	// extensor de signo
 	logic [15:0] extended_label;
 	
 	// sumador branch
 	logic [15:0] pc_decode;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -149,15 +160,9 @@ module top (
         .y(branch_address)
     );
 	 
-	 
-	 
-	 
-	
-	 
-	 
 	 Regfile_scalar regfile_instance (
       .clk(clk),
-      .wre(wre xs xsas sxax),
+      .wre(wre_writeback),
       .a1(instruction_decode[3:0]),
       .a2(instruction_decode[7:4]),
       .a3(instruction_decode[11:8]),
@@ -167,15 +172,12 @@ module top (
       .rd3(rd3)
    );
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+	comparator_branch comparator_instance (
+		.opCode(instruction_decode[15:12]);
+      .rs1_value(rd1);
+      .rs2_value(rd2);
+      .select_pc_mux(select_pc_mux);
+	);  
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
