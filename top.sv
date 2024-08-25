@@ -32,10 +32,14 @@ module top (
 	logic [6:0] nop_mux_output;
 	logic [1:0] select_nop_mux;
 	
+	// banco de registros
+	logic [15:0] writeback_data;
 	
+	// extensor de signo
+	logic [15:0] extended_label;
 	
-	
-	
+	// sumador branch
+	logic [15:0] pc_decode;
 	
 	
 	
@@ -61,7 +65,7 @@ module top (
 	logic [15:0] alu_result_execute;
 	logic [15:0] alu_result_memory;
 	
-	logic [15:0] calcData_writeback;
+	
 	
 //////////////////////////////////////////////////////////////////////////////
 
@@ -79,10 +83,10 @@ module top (
 
 
 // sumador del PC
-	PC_adder pc_add (
-        .address(pc_address),
-        .offset(pc_offset),
-        .PC(pc_incremented)
+	adder pc_add (
+        .a(pc_address),
+        .b(pc_offset),
+        .y(pc_incremented)
     );
 	 
 // mux que elige entre el PC+1 o un branch
@@ -101,10 +105,6 @@ module top (
         .address_out(pc_address)
     );
 
-    
-
-    
-
     ROM rom_memory (
         .address(pc_address),
         .clock(clk),
@@ -117,14 +117,13 @@ module top (
         .clk(clk),
 		  .reset(reset),
 		  .nop(nop),
+		  .pc(pc_address),
         .instruction_in(instruction_fetch),
+		  .pc_decode(pc_decode),
         .instruction_out(instruction_decode)
     );
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////	
-	 
-	  
-	 
 	 
 	 controlUnit control_unit_instance (
       .opCode(instruction_decode[15:12]),
@@ -139,6 +138,19 @@ module top (
         .out(nop_mux_output)
     );
 	 
+	 signExtend sign_extend_instance (
+        .label(instruction_decode[11:8]),
+        .SignExtLabel(extended_label) 
+    );
+	 
+	 adder branch_label_pc_add (
+        .a(pc_decode),
+        .b(extended_label),
+        .y(branch_address)
+    );
+	 
+	 
+	 
 	 
 	
 	 
@@ -149,7 +161,7 @@ module top (
       .a1(instruction_decode[3:0]),
       .a2(instruction_decode[7:4]),
       .a3(instruction_decode[11:8]),
-      .wd3(calcData_writeback),
+      .wd3(writeback_data),
       .rd1(rd1),
       .rd2(rd2),
       .rd3(rd3)
@@ -214,7 +226,7 @@ module top (
       .clk(clk),
 		.reset(reset),
       .calcData_in(alu_result_memory),
-      .calcData_out(calcData_writeback)
+      .calcData_out(writeback_data)
    );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
