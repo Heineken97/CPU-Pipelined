@@ -77,10 +77,12 @@ module top (
 	logic [2:0] select_forward_mux_A;
 	logic [2:0] select_forward_mux_B;
 	
-
+	// memoria de datos
+	logic [15:0] data_from_memory;
 	
-	
-
+	// registro Memory-Writeback
+	logic [15:0] data_from_memory_writeback;
+	logic [15:0] alu_result_writeback;
     
 	
 	
@@ -253,9 +255,9 @@ module top (
 	   .srcA_execute(srcA_execute),
 	   .srcB_execute(srcB_execute),
 	   .rd_execute(rd_execute),
-	   .wre_memory(),
-	   .select_writeback_data_mux_memory(),
-	   .write_memory_enable_memory(),
+	   .wre_memory(wre_memory),
+	   .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
+	   .write_memory_enable_memory(write_memory_enable_memory),
 	   .ALUresult_out(alu_result_memory),
 	   .srcA_memory(srcA_memory),
 	   .srcB_memory(srcB_memory),
@@ -264,25 +266,33 @@ module top (
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
+	RAM RAM_instance(
+		.address(srcA_memory),
+		.clock(clk),
+		.data(srcB_memory),
+		.wren(write_memory_enable_memory),  
+		.q(data_from_memory)
+	);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 	 MemoryWriteback_register MemoryWriteback_register_instance (
       .clk(clk),
 		.reset(reset),
-      .calcData_in(alu_result_memory),
-      .calcData_out(writeback_data)
+      .data_from_memory_in(data_from_memory),
+	   .calc_data_in(alu_result_memory),
+	   .data_from_memory_out(data_from_memory_writeback),
+	   .calc_data_out(alu_result_writeback)
    );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-	
+	mux_2inputs mux_2inputs_writeback (
+        .data0(data_from_memory_writeback),
+        .data1(alu_result_writeback),
+        .select(select_writeback_data_mux_memory),
+        .out(writeback_data)
+    );
 	
 	
 endmodule
