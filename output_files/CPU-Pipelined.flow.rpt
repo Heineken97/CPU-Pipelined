@@ -1,5 +1,5 @@
 Flow report for CPU-Pipelined
-Sun Aug 25 22:33:39 2024
+Sun Aug 25 23:31:30 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Sun Aug 25 22:33:39 2024           ;
+; Flow Status                     ; Successful - Sun Aug 25 23:31:30 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; CPU-Pipelined                                   ;
 ; Top-level Entity Name           ; top                                             ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/25/2024 22:33:31 ;
+; Start date & time ; 08/25/2024 23:31:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU-Pipelined       ;
 +-------------------+---------------------+
@@ -78,28 +78,32 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 200715048319395.172464681017848        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 200715048319395.172465028204700        ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ROM_tb                            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Fetch_Stage_tb                    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; cpu_top_tb                        ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Add_tb                            ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Add_tb                                 ; --            ; --          ; eda_simulation                    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; cpu_top_tb                             ; --            ; --          ; eda_simulation                    ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation                    ;
 ; EDA_RUN_TOOL_AUTOMATICALLY           ; Off                                    ; --            ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --                                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_FILE                  ; testbenches/ROM_tb.sv                  ; --            ; --          ; ROM_tb                            ;
 ; EDA_TEST_BENCH_FILE                  ; testbenches/Fetch_Stage_tb.sv          ; --            ; --          ; Fetch_Stage_tb                    ;
+; EDA_TEST_BENCH_FILE                  ; testbenches/cpu_top_tb.sv              ; --            ; --          ; cpu_top_tb                        ;
 ; EDA_TEST_BENCH_FILE                  ; testbenches/Add_tb.sv                  ; --            ; --          ; Add_tb                            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ROM_tb                                 ; --            ; --          ; ROM_tb                            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; Fetch_Stage_tb                         ; --            ; --          ; Fetch_Stage_tb                    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; cpu_top_tb                             ; --            ; --          ; cpu_top_tb                        ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; Add_tb                                 ; --            ; --          ; Add_tb                            ;
 ; EDA_TEST_BENCH_NAME                  ; Fetch_Stage_tb                         ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; ROM_tb                                 ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; Add_tb                                 ; --            ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; cpu_top_tb                             ; --            ; --          ; eda_simulation                    ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                                ;
@@ -126,8 +130,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4813 MB             ; 00:00:09                           ;
-; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:09                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4810 MB             ; 00:00:08                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:08                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

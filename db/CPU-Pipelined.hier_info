@@ -2732,6 +2732,14 @@ control_signals[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 control_signals[5] <= <GND>
 control_signals[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 control_signals[7] <= wre.DB_MAX_OUTPUT_PORT_TYPE
+control_signals[8] <= <GND>
+control_signals[9] <= <GND>
+control_signals[10] <= <GND>
+control_signals[11] <= <GND>
+control_signals[12] <= <GND>
+control_signals[13] <= <GND>
+control_signals[14] <= <GND>
+control_signals[15] <= <GND>
 
 
 |top|mux_2inputs:mux_2inputs_nop

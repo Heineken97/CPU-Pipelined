@@ -161,7 +161,7 @@ module top (
 		 .rs2_decode(instruction_decode[7:4]),
 		 .rs1_execute(rs1_execute),
 		 .rs2_execute(rs2_execute),
-		 .nop(nop)
+		 .nop(select_nop_mux)
 	);
 		 
 	 controlUnit control_unit_instance (
@@ -171,8 +171,8 @@ module top (
 	 
 // mux que elige entre las señales de control y los stalls
     mux_2inputs mux_2inputs_nop (
-        .data0(7'b0),
-        .data1({9'b0, control_signals}),
+        .data0(control_signals),
+        .data1(16'b0),
         .select(select_nop_mux),
         .out(nop_mux_output)
     );

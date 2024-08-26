@@ -1,6 +1,6 @@
 module controlUnit (
     input logic [3:0] opCode,
-	 output logic [7:0] control_signals // salida concatenada
+	 output logic [15:0] control_signals // salida concatenada
 );
 
 	 logic wre;	// write register enable
@@ -63,7 +63,7 @@ module controlUnit (
         endcase
 		  
 		  // Concatenación de las señales de control para que sea la entrada al mux de stalls
-		  control_signals = {wre, write_memory_enable, select_writeback_data_mux, aluOp};
+		  control_signals = {8'b0, wre, write_memory_enable, select_writeback_data_mux, aluOp};
 
     end
 
