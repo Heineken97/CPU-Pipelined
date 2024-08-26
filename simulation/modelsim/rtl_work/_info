@@ -10,7 +10,7 @@ cModel Technology
 Z0 dC:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/simulation/modelsim
 vadder
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1724650301
+Z2 !s110 1724657260
 !i10b 1
 !s100 0JYJZg>[2RMV5RUZ?>8Ra3
 I;hoKfm_P<78P>WI1V6AFR1
@@ -26,7 +26,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1724650301.000000
+Z6 !s108 1724657260.000000
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/adder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/adder.sv|
 !i113 1
@@ -61,7 +61,7 @@ R9
 n@a@l@u
 vcomparator_branch
 R1
-R2
+Z10 !s110 1724657261
 !i10b 1
 !s100 fC=zbNGFNfUzKf92>oY=a0
 I6e:d:fWd:20oOGHZ721?T1
@@ -77,7 +77,7 @@ R5
 r1
 !s85 0
 31
-R6
+Z11 !s108 1724657261.000000
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/comparator_branch.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/comparator_branch.sv|
 !i113 1
@@ -88,13 +88,13 @@ vcontrolUnit
 R1
 R2
 !i10b 1
-!s100 l8:F2@XgJSnoji9Uo[MXd2
-I=c9Cj9YCLS]X3_L0ZzHbD0
+!s100 eYk:3I=CEO@ZSm9i`KIXI1
+I>WBb]YVDTHO3bbh64I?JC1
 R3
 !s105 controlUnit_sv_unit
 S1
 R0
-w1724649380
+w1724655715
 8C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/controlUnit.sv
 FC:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/controlUnit.sv
 L0 1
@@ -112,15 +112,15 @@ R9
 ncontrol@unit
 vcpu_top_tb
 R1
-R2
+R10
 !i10b 1
-!s100 =6l04j4>Obnf9aTaWF:<S0
-ILi]Oe:WF30AmzF26a_2cn1
+!s100 BdDBT04_iJ6FK_hI9mI?:1
+IOM=>z2Z6UoVFf7SMTn1zk0
 R3
 !s105 cpu_top_tb_sv_unit
 S1
 R0
-w1724648993
+w1724657227
 8C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
 FC:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
 L0 2
@@ -128,7 +128,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv|
 !i113 1
@@ -215,7 +215,7 @@ R9
 n@fetch@decode_register
 vhazard_detection_unit
 R1
-R2
+R10
 !i10b 1
 !s100 Lifg5Oj5ga^eTdSge;A5;0
 IYQ?ABR8^od0GVGHG:5<Qe2
@@ -231,7 +231,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv|
 !i113 1
@@ -291,7 +291,7 @@ R8
 R9
 vmux_3inputs
 R1
-R2
+R10
 !i10b 1
 !s100 j1j5R92XfO<Ci1dUi1c]J3
 IhNa[23[4_]?7[lZ3:<8e33
@@ -307,7 +307,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_3inputs.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_3inputs.sv|
 !i113 1
@@ -350,7 +350,7 @@ R0
 R4
 8C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v
 FC:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v
-Z10 L0 39
+Z12 L0 39
 R5
 r1
 !s85 0
@@ -359,8 +359,8 @@ R6
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v|
 !i113 1
-Z11 o-vlog01compat -work work
-Z12 !s92 -vlog01compat -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory
+Z13 o-vlog01compat -work work
+Z14 !s92 -vlog01compat -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory
 R9
 n@r@a@m
 vRegfile_scalar
@@ -399,7 +399,7 @@ R0
 R4
 8C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v
 FC:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v
-R10
+R12
 R5
 r1
 !s85 0
@@ -408,13 +408,13 @@ R6
 !s107 C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory|C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v|
 !i113 1
-R11
-R12
+R13
+R14
 R9
 n@r@o@m
 vsignExtend
 R1
-R2
+R10
 !i10b 1
 !s100 4RUWL]?:YfoeoKSWQ6H681
 I`L51PO3Lc]YFgS`Ri:KD_0
@@ -442,13 +442,13 @@ vtop
 R1
 R2
 !i10b 1
-!s100 L:8k1`m;hI[a96CIVBj::3
-Ia<f<W_:n40`ePIWdKTVHE1
+!s100 ;4E>ngGWn8d5oORUoLMO_2
+IQlJb<Y=5I0V0VaKXnH8`>2
 R3
 !s105 top_sv_unit
 S1
 R0
-w1724648997
+w1724657233
 8C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv
 FC:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv
 L0 1

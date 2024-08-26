@@ -5,7 +5,7 @@ module controlUnit (
 
 	 logic wre;	// write register enable
 	 logic [3:0] aluOp;	// operacion que debe realizar la ALU
-	 logic write_memory_enable; // indica si la operacion escribe o no en la memoria
+	 logic write_memory_enable ; // indica si la operacion escribe o no en la memoria
 	 logic [1:0] select_writeback_data_mux; // mux que elige entre el dato calculado en la alu o el dato que sale de memoria
 	 
 
@@ -61,10 +61,6 @@ module controlUnit (
 					 aluOp =4'b0000;
             end
         endcase
-		  
-		  // Concatenación de las señales de control para que sea la entrada al mux de stalls
 		  control_signals = {8'b0, wre, write_memory_enable, select_writeback_data_mux, aluOp};
-
     end
-
 endmodule

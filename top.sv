@@ -2,11 +2,11 @@ module top (
     input logic clk,
     input logic reset
 );
+	//logic nop;
 
 	// registro PC
 	logic [15:0] pc_mux_output;
 	logic [15:0] pc_address;
-	logic nop;
 
 	// sumador del PC
 	logic [15:0] pc_offset;
@@ -22,15 +22,13 @@ module top (
 	logic [15:0] instruction_decode;
 
 	// unidad de control
-	logic wre_decode;
-	logic write_memory_enable_decode;
-	logic [1:0] writeback_data_mux_decode;
-
+	//logicwre_decode;
+	logic [15:0] control_signals;
 
 
 	// mux de la unidad de control
 	logic [15:0] nop_mux_output;
-	logic [1:0] select_nop_mux;
+	logic select_nop_mux;
 	
 	// banco de registros
 	logic [15:0] writeback_data;
@@ -46,7 +44,7 @@ module top (
 	logic [15:0] pc_decode;
 	
 	// registro Decode-Execute
-	logic wre_execute;
+	//logic wre_execute;
 	logic write_memory_enable_execute;
 	logic [1:0] select_writeback_data_mux_execute;
 	logic [3:0] aluOp_execute;
@@ -84,32 +82,13 @@ module top (
 	logic [15:0] data_from_memory_writeback;
 	logic [15:0] alu_result_writeback;
 	logic [3:0] rd_writeback;
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    	
 //////////////////////////////////////////////////////////////////////////////
-
 
 // Inicialización
 	assign pc_offset = 16'b0000000000000001;
-
-
-	
-	
-	
 	
 //////////////////////////////////////////////////////////////////////////////
-
-
 
 // sumador del PC
 	adder pc_add (
@@ -129,7 +108,7 @@ module top (
 	 PC_register pc_reg (
         .clk(clk),
         .reset(reset),
-		  .nop(nop),
+		  .nop(select_nop_mux),
         .address_in(pc_mux_output),
         .address_out(pc_address)
     );
@@ -145,7 +124,7 @@ module top (
 	 FetchDecode_register FetchDecode_register_instance (
         .clk(clk),
 		  .reset(reset),
-		  .nop(nop),
+		  .nop(select_nop_mux),
 		  .pc(pc_address),
         .instruction_in(instruction_fetch),
 		  .pc_decode(pc_decode),
@@ -155,7 +134,7 @@ module top (
 ////////////////////////////////////////////////////////////////////////////////////////////////	
 	 
 	 hazard_detection_unit u_hazard_detection (
-		 .rd_load_execute(rd_load_execute),
+		 .rd_load_execute(rd_execute),
 		 .write_memory_enable_execute(write_memory_enable_execute),
 		 .rs1_decode(instruction_decode[3:0]),
 		 .rs2_decode(instruction_decode[7:4]),
@@ -218,7 +197,7 @@ module top (
 		.rs1_decode(instruction_decode[3:0]),
 		.rs2_decode(instruction_decode[7:4]),
 		.rd_decode(instruction_decode[11:8]),
-		.wre_execute(wre_execute),
+		.wre_execute(control_signals[9]),
       .write_memory_enable_execute(write_memory_enable_execute),
       .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
       .aluOp_execute(aluOp_execute),

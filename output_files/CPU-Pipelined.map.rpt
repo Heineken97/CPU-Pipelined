@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU-Pipelined
-Sun Aug 25 23:31:30 2024
+Mon Aug 26 01:27:24 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -29,12 +29,10 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  21. Port Connectivity Checks: "DecodeExecute_register:DecodeExecute_register_instance"
  22. Port Connectivity Checks: "Regfile_scalar:regfile_instance"
  23. Port Connectivity Checks: "mux_2inputs:mux_2inputs_nop"
- 24. Port Connectivity Checks: "controlUnit:control_unit_instance"
- 25. Port Connectivity Checks: "hazard_detection_unit:u_hazard_detection"
- 26. Port Connectivity Checks: "adder:pc_add"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
+ 24. Port Connectivity Checks: "adder:pc_add"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -60,7 +58,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Aug 25 23:31:30 2024           ;
+; Analysis & Synthesis Status     ; Successful - Mon Aug 26 01:27:23 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; CPU-Pipelined                                   ;
 ; Top-level Entity Name           ; top                                             ;
@@ -275,16 +273,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------------------------------+---------------------------------------------+
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_calculated[0..15]                 ; Lost fanout                                 ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[12..15]                    ; Stuck at GND due to stuck port data_in      ;
+; ExecuteMemory_register:ExecuteMemory_register_instance|wre                                        ; Stuck at GND due to stuck port data_in      ;
+; MemoryWriteback_register:MemoryWriteback_register_instance|wre_writeback                          ; Stuck at GND due to stuck port data_in      ;
 ; ExecuteMemory_register:ExecuteMemory_register_instance|ALUresult[0..15]                           ; Lost fanout                                 ;
 ; DecodeExecute_register:DecodeExecute_register_instance|srcA[12..15]                               ; Lost fanout                                 ;
 ; DecodeExecute_register:DecodeExecute_register_instance|srcB[12..15]                               ; Lost fanout                                 ;
 ; DecodeExecute_register:DecodeExecute_register_instance|aluOp_execute[0..3]                        ; Lost fanout                                 ;
-; DecodeExecute_register:DecodeExecute_register_instance|write_memory_enable_execute                ; Stuck at GND due to stuck port data_in      ;
-; DecodeExecute_register:DecodeExecute_register_instance|wre_execute                                ; Stuck at GND due to stuck port data_in      ;
-; DecodeExecute_register:DecodeExecute_register_instance|rs2[0..3]                                  ; Lost fanout                                 ;
-; ExecuteMemory_register:ExecuteMemory_register_instance|write_memory_enable                        ; Stuck at GND due to stuck port data_in      ;
-; ExecuteMemory_register:ExecuteMemory_register_instance|wre                                        ; Stuck at GND due to stuck port data_in      ;
-; MemoryWriteback_register:MemoryWriteback_register_instance|wre_writeback                          ; Stuck at GND due to stuck port data_in      ;
 ; Regfile_scalar:regfile_instance|rf[0][0]                                                          ; Stuck at VCC due to stuck port clock_enable ;
 ; Regfile_scalar:regfile_instance|rf[0][1]                                                          ; Stuck at GND due to stuck port clock_enable ;
 ; Regfile_scalar:regfile_instance|rf[0][2]                                                          ; Stuck at GND due to stuck port clock_enable ;
@@ -571,6 +565,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; DecodeExecute_register:DecodeExecute_register_instance|srcB[10]                                   ; Lost fanout                                 ;
 ; Regfile_scalar:regfile_instance|rf[15][11]                                                        ; Stuck at GND due to stuck port clock_enable ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[11]                        ; Lost fanout                                 ;
+; ExecuteMemory_register:ExecuteMemory_register_instance|write_memory_enable                        ; Lost fanout                                 ;
 ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[11]                                   ; Lost fanout                                 ;
 ; DecodeExecute_register:DecodeExecute_register_instance|srcB[11]                                   ; Lost fanout                                 ;
 ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[0]                                    ; Lost fanout                                 ;
@@ -613,11 +608,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; MemoryWriteback_register:MemoryWriteback_register_instance|rd_writeback[0]                        ; Lost fanout                                 ;
 ; ExecuteMemory_register:ExecuteMemory_register_instance|rd[0]                                      ; Lost fanout                                 ;
 ; DecodeExecute_register:DecodeExecute_register_instance|rd[0]                                      ; Lost fanout                                 ;
+; DecodeExecute_register:DecodeExecute_register_instance|rs2[0..3]                                  ; Lost fanout                                 ;
+; DecodeExecute_register:DecodeExecute_register_instance|write_memory_enable_execute                ; Lost fanout                                 ;
 ; FetchDecode_register:FetchDecode_register_instance|pc_decode_reg[0..15]                           ; Lost fanout                                 ;
 ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[0..15]                     ; Lost fanout                                 ;
 ; ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|address_reg_a[0..2] ; Lost fanout                                 ;
 ; PC_register:pc_reg|out[0..15]                                                                     ; Lost fanout                                 ;
-; Total Number of Removed Registers = 436                                                           ;                                             ;
+; Total Number of Removed Registers = 435                                                           ;                                             ;
 +---------------------------------------------------------------------------------------------------+---------------------------------------------+
 
 
@@ -626,9 +623,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 ; Register name                                                                                  ; Reason for Removal        ; Registers Removed due to This Register                                              ;
 +------------------------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; DecodeExecute_register:DecodeExecute_register_instance|wre_execute                             ; Stuck at GND              ; ExecuteMemory_register:ExecuteMemory_register_instance|wre,                         ;
-;                                                                                                ; due to stuck port data_in ; MemoryWriteback_register:MemoryWriteback_register_instance|wre_writeback,           ;
-;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[0][0], Regfile_scalar:regfile_instance|rf[0][1], ;
+; ExecuteMemory_register:ExecuteMemory_register_instance|wre                                     ; Stuck at GND              ; MemoryWriteback_register:MemoryWriteback_register_instance|wre_writeback,           ;
+;                                                                                                ; due to stuck port data_in ; Regfile_scalar:regfile_instance|rf[0][0], Regfile_scalar:regfile_instance|rf[0][1], ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[0][2], Regfile_scalar:regfile_instance|rf[0][3], ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[0][4], Regfile_scalar:regfile_instance|rf[0][5], ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[0][6], Regfile_scalar:regfile_instance|rf[0][7], ;
@@ -760,28 +756,63 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[14][11],                                         ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][0],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[0],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[0],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[0],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][1],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[1],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[1],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[1],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][2],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[2],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[2],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[2],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][3],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[3],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[3],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[3],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][4],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[4],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[4],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[4],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][5],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[5],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[5],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[5],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][6],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[6],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[6],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[6],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][7],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[7],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[7],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[7],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][8],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[8],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[8],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[8],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][9],                                          ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[9],          ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[9],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[9],                     ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][10],                                         ;
 ;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[10],         ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[10],                    ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[10],                    ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][11],                                         ;
-;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[11]          ;
+;                                                                                                ;                           ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[11],         ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|write_memory_enable,         ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[11],                    ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[11],                    ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[0],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[0],                     ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[1],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[1],                     ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[2],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[2],                     ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[3],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[3],                     ;
+;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[4],                     ;
+;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[4]                      ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[15]                     ; Stuck at GND              ; DecodeExecute_register:DecodeExecute_register_instance|srcA[15],                    ;
 ;                                                                                                ; due to stuck port data_in ; DecodeExecute_register:DecodeExecute_register_instance|srcB[15],                    ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[0][15],                                          ;
@@ -824,44 +855,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[9],          ;
 ;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[10],         ;
 ;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[11]          ;
-; DecodeExecute_register:DecodeExecute_register_instance|write_memory_enable_execute             ; Stuck at GND              ; DecodeExecute_register:DecodeExecute_register_instance|rs2[3],                      ;
-;                                                                                                ; due to stuck port data_in ; DecodeExecute_register:DecodeExecute_register_instance|rs2[2],                      ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|rs2[1],                      ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|write_memory_enable,         ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[0],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[0],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[1],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[1],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[2],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[2],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[3],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[3],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[4],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[4],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[5],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[5],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[6],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[6],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[7],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[7],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[8],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[8],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[9],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[9],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[10],                    ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[10],                    ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcB[11],                    ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcB[11],                    ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[0],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[0],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[1],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[1],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[2],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[2],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[3],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[3],                     ;
-;                                                                                                ;                           ; ExecuteMemory_register:ExecuteMemory_register_instance|srcA[4],                     ;
-;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[4]                      ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_memory[14]                     ; Stuck at GND              ; DecodeExecute_register:DecodeExecute_register_instance|srcA[14],                    ;
 ;                                                                                                ; due to stuck port data_in ; DecodeExecute_register:DecodeExecute_register_instance|srcB[14],                    ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[0][14],                                          ;
@@ -916,12 +909,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[13][12],                                         ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[14][12],                                         ;
 ;                                                                                                ;                           ; Regfile_scalar:regfile_instance|rf[15][12]                                          ;
+; DecodeExecute_register:DecodeExecute_register_instance|aluOp_execute[0]                        ; Lost Fanouts              ; DecodeExecute_register:DecodeExecute_register_instance|write_memory_enable_execute, ;
+;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[13],         ;
+;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[14],         ;
+;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[15]          ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_calculated[0]                  ; Lost Fanouts              ; ExecuteMemory_register:ExecuteMemory_register_instance|ALUresult[0],                ;
 ;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|aluOp_execute[3],            ;
 ;                                                                                                ;                           ; DecodeExecute_register:DecodeExecute_register_instance|srcA[11]                     ;
-; DecodeExecute_register:DecodeExecute_register_instance|aluOp_execute[0]                        ; Lost Fanouts              ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[13],         ;
-;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[14],         ;
-;                                                                                                ;                           ; FetchDecode_register:FetchDecode_register_instance|instruction_out_reg[15]          ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_calculated[15]                 ; Lost Fanouts              ; ExecuteMemory_register:ExecuteMemory_register_instance|ALUresult[15]                ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_calculated[14]                 ; Lost Fanouts              ; ExecuteMemory_register:ExecuteMemory_register_instance|ALUresult[14]                ;
 ; MemoryWriteback_register:MemoryWriteback_register_instance|data_calculated[13]                 ; Lost Fanouts              ; ExecuteMemory_register:ExecuteMemory_register_instance|ALUresult[13]                ;
@@ -1199,31 +1193,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "mux_2inputs:mux_2inputs_nop"                                                                                                                    ;
-+-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                                                                                                                         ;
-+-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; data0 ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "data0[15..1]" will be connected to GND. ;
-; data1 ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
-+-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlUnit:control_unit_instance"                                                                                                              ;
-+-----------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                                                                              ;
-+-----------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
-; control_signals ; Output ; Warning  ; Output or bidir port (16 bits) is wider than the port expression (1 bits) it drives; bit(s) "control_signals[15..1]" have no fanouts ;
-+-----------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hazard_detection_unit:u_hazard_detection"                                                                                                                                        ;
-+-----------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                                                                                                               ;
-+-----------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; rd_load_execute ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "rd_load_execute[3..1]" will be connected to GND.               ;
-; nop             ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (2 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
-+-----------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; data1  ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
+; select ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "select[1..1]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------+
@@ -1263,7 +1238,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Aug 25 23:31:22 2024
+    Info: Processing started: Mon Aug 26 01:27:15 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU-Pipelined -c CPU-Pipelined
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1311,16 +1286,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file core/fo
     Info (12023): Found entity 1: forwarding_unit File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/forwarding_unit.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file testbenches/cpu_top_tb.sv
     Info (12023): Found entity 1: cpu_top_tb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 2
-Warning (10236): Verilog HDL Implicit Net warning at top.sv(158): created implicit net for "rd_load_execute" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 158
-Warning (10236): Verilog HDL Implicit Net warning at top.sv(169): created implicit net for "control_signals" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 169
-Warning (10236): Verilog HDL Implicit Net warning at top.sv(311): created implicit net for "select_writeback_data_mux_writeback" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 311
+Warning (10236): Verilog HDL Implicit Net warning at top.sv(241): created implicit net for "wre_execute" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 241
+Warning (10236): Verilog HDL Implicit Net warning at top.sv(290): created implicit net for "select_writeback_data_mux_writeback" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 290
 Warning (10236): Verilog HDL Implicit Net warning at cpu_top_tb.sv(103): created implicit net for "rd_load_execute" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 103
-Warning (10236): Verilog HDL Implicit Net warning at cpu_top_tb.sv(115): created implicit net for "control_signals" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 115
+Warning (10236): Verilog HDL Implicit Net warning at cpu_top_tb.sv(211): created implicit net for "wre_execute" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 211
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "adder" for hierarchy "adder:pc_add" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 119
-Info (12128): Elaborating entity "mux_2inputs" for hierarchy "mux_2inputs:mux_2inputs_PC" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 127
-Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 135
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 141
+Info (12128): Elaborating entity "adder" for hierarchy "adder:pc_add" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 98
+Info (12128): Elaborating entity "mux_2inputs" for hierarchy "mux_2inputs:mux_2inputs_PC" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 106
+Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 114
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 120
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v Line: 81
 Info (12130): Elaborated megafunction instantiation "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v Line: 81
 Info (12133): Instantiated megafunction "ROM:rom_memory|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v Line: 81
@@ -1347,17 +1321,17 @@ Info (12128): Elaborating entity "decode_61a" for hierarchy "ROM:rom_memory|alts
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/mux_chb.tdf Line: 22
 Info (12128): Elaborating entity "mux_chb" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|mux_chb:mux2" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/altsyncram_q4g1.tdf Line: 40
-Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 153
-Info (12128): Elaborating entity "hazard_detection_unit" for hierarchy "hazard_detection_unit:u_hazard_detection" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 165
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control_unit_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 170
-Info (12128): Elaborating entity "signExtend" for hierarchy "signExtend:sign_extend_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 183
-Info (12128): Elaborating entity "Regfile_scalar" for hierarchy "Regfile_scalar:regfile_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 201
-Info (12128): Elaborating entity "comparator_branch" for hierarchy "comparator_branch:comparator_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 208
-Info (12128): Elaborating entity "DecodeExecute_register" for hierarchy "DecodeExecute_register:DecodeExecute_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 230
-Info (12128): Elaborating entity "mux_3inputs" for hierarchy "mux_3inputs:mux_alu_forward_A" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 240
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 255
-Info (12128): Elaborating entity "ExecuteMemory_register" for hierarchy "ExecuteMemory_register:ExecuteMemory_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 276
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 286
+Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 132
+Info (12128): Elaborating entity "hazard_detection_unit" for hierarchy "hazard_detection_unit:u_hazard_detection" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 144
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control_unit_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 149
+Info (12128): Elaborating entity "signExtend" for hierarchy "signExtend:sign_extend_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 162
+Info (12128): Elaborating entity "Regfile_scalar" for hierarchy "Regfile_scalar:regfile_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 180
+Info (12128): Elaborating entity "comparator_branch" for hierarchy "comparator_branch:comparator_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 187
+Info (12128): Elaborating entity "DecodeExecute_register" for hierarchy "DecodeExecute_register:DecodeExecute_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 209
+Info (12128): Elaborating entity "mux_3inputs" for hierarchy "mux_3inputs:mux_alu_forward_A" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 219
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 234
+Info (12128): Elaborating entity "ExecuteMemory_register" for hierarchy "ExecuteMemory_register:ExecuteMemory_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 255
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 265
 Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v Line: 85
 Info (12130): Elaborated megafunction instantiation "RAM:RAM_instance|altsyncram:altsyncram_component" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v Line: 85
 Info (12133): Instantiated megafunction "RAM:RAM_instance|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v Line: 85
@@ -1379,123 +1353,114 @@ Info (12133): Instantiated megafunction "RAM:RAM_instance|altsyncram:altsyncram_
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_v7n1.tdf
     Info (12023): Found entity 1: altsyncram_v7n1 File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/altsyncram_v7n1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_v7n1" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_v7n1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "MemoryWriteback_register" for hierarchy "MemoryWriteback_register:MemoryWriteback_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 304
+Info (12128): Elaborating entity "MemoryWriteback_register" for hierarchy "MemoryWriteback_register:MemoryWriteback_register_instance" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 283
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_nop_mux[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 33
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_nop_mux[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 33
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_nop_mux[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 33
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "nop" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 9
-    Warning (12110): Net "select_nop_mux[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 33
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "nop" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 9
-    Warning (12110): Net "select_nop_mux[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 33
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "nop" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 9
-    Warning (12110): Net "select_nop_mux[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 33
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 68
-    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
-    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 81
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 66
+    Warning (12110): Net "data_from_memory[15]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[14]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[13]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
+    Warning (12110): Net "data_from_memory[12]" is missing source, defaulting to GND File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv Line: 79
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_v7n1:auto_generated|q_a[0]" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/altsyncram_v7n1.tdf Line: 36
@@ -1640,8 +1605,8 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|ram_block1a125" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/altsyncram_q4g1.tdf Line: 2666
         Warning (14320): Synthesized away node "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|ram_block1a126" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/altsyncram_q4g1.tdf Line: 2687
         Warning (14320): Synthesized away node "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|ram_block1a127" File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/db/altsyncram_q4g1.tdf Line: 2708
-Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (17049): 171 registers lost all their fanouts during netlist optimizations.
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (17049): 173 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
@@ -1650,10 +1615,10 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 270 warnings
-    Info: Peak virtual memory: 4817 megabytes
-    Info: Processing ended: Sun Aug 25 23:31:30 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 260 warnings
+    Info: Peak virtual memory: 4821 megabytes
+    Info: Processing ended: Mon Aug 26 01:27:24 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 

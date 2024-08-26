@@ -4,7 +4,7 @@ module cpu_top_tb;
     // Declaración de señales
     logic clk;
     logic reset;
-    logic nop;
+	 //logic nop;
     logic [15:0] pc_address;
     logic [15:0] pc_offset;
     logic [15:0] pc_incremented;
@@ -13,11 +13,9 @@ module cpu_top_tb;
     logic [15:0] pc_mux_output;
     logic [15:0] instruction_fetch;
     logic [15:0] instruction_decode;
-    logic wre_decode;
-    logic write_memory_enable_decode;
-    logic [1:0] writeback_data_mux_decode;
+    //logic wre_decode;
     logic [15:0] nop_mux_output;
-    logic [1:0] select_nop_mux;
+    logic select_nop_mux;
     logic [15:0] writeback_data;
     logic wre_writeback;
     logic [15:0] rd1;
@@ -25,7 +23,7 @@ module cpu_top_tb;
     logic [15:0] rd3;
     logic [15:0] extended_label;
     logic [15:0] pc_decode;
-    logic wre_execute;
+    //logic wre_execute;
     logic write_memory_enable_execute;
     logic [1:0] select_writeback_data_mux_execute;
     logic [3:0] aluOp_execute;
@@ -52,6 +50,8 @@ module cpu_top_tb;
     logic [3:0] rd_writeback;
 	 
 	 logic [1:0] select_writeback_data_mux_writeback;
+	 
+	 logic [15:0] control_signals;
 
     // Generación de reloj
     always #5 clk = ~clk;
@@ -75,7 +75,7 @@ module cpu_top_tb;
     PC_register pc_reg (
         .clk(clk),
         .reset(reset),
-        .nop(nop),
+        .nop(select_nop_mux),
         .address_in(pc_mux_output),
         .address_out(pc_address)
     );
@@ -91,7 +91,7 @@ module cpu_top_tb;
     FetchDecode_register FetchDecode_register_instance (
         .clk(clk),
         .reset(reset),
-        .nop(nop),
+        .nop(select_nop_mux),
         .pc(pc_address),
         .instruction_in(instruction_fetch),
         .pc_decode(pc_decode),
@@ -167,7 +167,7 @@ module cpu_top_tb;
         .rs1_decode(instruction_decode[3:0]),
         .rs2_decode(instruction_decode[7:4]),
         .rd_decode(instruction_decode[11:8]),
-        .wre_execute(wre_execute),
+        .wre_execute(control_signals[9]),
         .write_memory_enable_execute(write_memory_enable_execute),
         .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
         .aluOp_execute(aluOp_execute),
@@ -262,7 +262,6 @@ module cpu_top_tb;
         // Inicialización de señales
         clk = 0;
         reset = 1;
-        nop = 0;
         pc_offset = 16'h0001;
         select_pc_mux = 0;
         select_nop_mux = 0;
@@ -289,8 +288,7 @@ module cpu_top_tb;
 
         // Secuencia de prueba 3: Simular un stall (NOP)
         select_nop_mux = 1;  // Activar NOP mux
-        nop = 1;  // Ingresar NOP en la secuencia de instrucciones
-        #10 nop = 0;
+        #10;
 
         // Esperar varios ciclos para observar el comportamiento del diseño
         repeat(10) @(posedge clk);
