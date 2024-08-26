@@ -29,12 +29,12 @@ module top (
 
 
 	// mux de la unidad de control
-	logic [6:0] nop_mux_output;
+	logic [15:0] nop_mux_output;
 	logic [1:0] select_nop_mux;
 	
 	// banco de registros
 	logic [15:0] writeback_data;
-	logic logic wre_writeback;
+	logic wre_writeback;
 	logic [15:0] rd1;
 	logic [15:0] rd2;
 	logic [15:0] rd3;
@@ -50,9 +50,9 @@ module top (
 	logic write_memory_enable_execute;
 	logic [1:0] select_writeback_data_mux_execute;
 	logic [3:0] aluOp_execute;
-	logic [3:0] rs1_execute; // entrada a la unidad de adelantamiento
-	logic [3:0] rs2_execute; // entrada a la unidad de adelantamiento
-	logic [3:0] rd_execute; // entrada a la unidad de adelantamiento
+	logic [3:0] rs1_execute; // entrada a la unidad de adelantamiento y de deteccion de riesgos
+	logic [3:0] rs2_execute; // entrada a la unidad de adelantamiento y de deteccion de riesgos
+	logic [3:0] rd_execute; 
 	
 	// alu
 	logic [15:0] alu_src_A;
@@ -83,6 +83,7 @@ module top (
 	// registro Memory-Writeback
 	logic [15:0] data_from_memory_writeback;
 	logic [15:0] alu_result_writeback;
+	logic [3:0] rd_writeback;
     
 	
 	
@@ -99,7 +100,7 @@ module top (
 
 
 // Inicialización
-	pc_offset = 16'b0000000000000001;
+	assign pc_offset = 16'b0000000000000001;
 
 
 	
@@ -153,6 +154,16 @@ module top (
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////	
 	 
+	 hazard_detection_unit u_hazard_detection (
+		 .rd_load_execute(rd_load_execute),
+		 .write_memory_enable_execute(write_memory_enable_execute),
+		 .rs1_decode(instruction_decode[3:0]),
+		 .rs2_decode(instruction_decode[7:4]),
+		 .rs1_execute(rs1_execute),
+		 .rs2_execute(rs2_execute),
+		 .nop(nop)
+	);
+		 
 	 controlUnit control_unit_instance (
       .opCode(instruction_decode[15:12]),
 		.control_signals(control_signals)
@@ -182,7 +193,7 @@ module top (
       .wre(wre_writeback),
       .a1(instruction_decode[3:0]),
       .a2(instruction_decode[7:4]),
-      .a3(instruction_decode[11:8]),
+      .a3(rd_writeback),
       .wd3(writeback_data),
       .rd1(rd1),
       .rd2(rd2),
@@ -190,10 +201,10 @@ module top (
    );
 	 
 	comparator_branch comparator_instance (
-		.opCode(instruction_decode[15:12]);
-      .rs1_value(rd1);
-      .rs2_value(rd2);
-      .select_pc_mux(select_pc_mux);
+		.opCode(instruction_decode[15:12]),
+      .rs1_value(rd1),
+      .rs2_value(rd2),
+      .select_pc_mux(select_pc_mux)
 	);  
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,7 +212,7 @@ module top (
 	 DecodeExecute_register DecodeExecute_register_instance (
 		.clk(clk),
 		.reset(reset),
-      .nop_mux_output(nop_mux_output),
+      .nop_mux_output_in(nop_mux_output),
       .srcA_in(rd1),
 		.srcB_in(rd2),
 		.rs1_decode(instruction_decode[3:0]),
@@ -279,10 +290,17 @@ module top (
 	 MemoryWriteback_register MemoryWriteback_register_instance (
       .clk(clk),
 		.reset(reset),
+      .wre_memory(wre_memory),
+      .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
+      .rd_memory(rd_memory), 
       .data_from_memory_in(data_from_memory),
-	   .calc_data_in(alu_result_memory),
-	   .data_from_memory_out(data_from_memory_writeback),
-	   .calc_data_out(alu_result_writeback)
+      .calc_data_in(alu_result_memory),
+    
+      .data_from_memory_out(data_from_memory_writeback),
+      .calc_data_out(alu_result_writeback),
+      .wre_writeback(wre_writeback),
+      .select_writeback_data_mux_writeback(),
+      .rd_writeback(rd_writeback)
    );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -290,7 +308,7 @@ module top (
 	mux_2inputs mux_2inputs_writeback (
         .data0(data_from_memory_writeback),
         .data1(alu_result_writeback),
-        .select(select_writeback_data_mux_memory),
+        .select(select_writeback_data_mux_writeback),
         .out(writeback_data)
     );
 	

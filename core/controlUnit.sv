@@ -3,10 +3,10 @@ module controlUnit (
 	 output logic [7:0] control_signals // salida concatenada
 );
 
-	 logic wre,	// write register enable
-	 logic [3:0] aluOp,	// operacion que debe realizar la ALU
-	 logic write_memory_enable, // indica si la operacion escribe o no en la memoria
-	 logic [1:0] select_writeback_data_mux // mux que elige entre el dato calculado en la alu o el dato que sale de memoria
+	 logic wre;	// write register enable
+	 logic [3:0] aluOp;	// operacion que debe realizar la ALU
+	 logic write_memory_enable; // indica si la operacion escribe o no en la memoria
+	 logic [1:0] select_writeback_data_mux; // mux que elige entre el dato calculado en la alu o el dato que sale de memoria
 	 
 
     // Definición de las salidas en función del opCode
