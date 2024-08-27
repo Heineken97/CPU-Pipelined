@@ -43,11 +43,11 @@ module RAM (
 	wren,
 	q);
 
-	input	[11:0]  address;
+	input	[15:0]  address;
 	input	  clock;
-	input	[11:0]  data;
+	input	[15:0]  data;
 	input	  wren;
-	output	[11:0]  q;
+	output	[15:0]  q;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
@@ -56,8 +56,8 @@ module RAM (
 // synopsys translate_on
 `endif
 
-	wire [11:0] sub_wire0;
-	wire [11:0] q = sub_wire0[11:0];
+	wire [15:0] sub_wire0;
+	wire [15:0] q = sub_wire0[15:0];
 
 	altsyncram	altsyncram_component (
 				.address_a (address),
@@ -96,8 +96,8 @@ module RAM (
 		altsyncram_component.outdata_reg_a = "UNREGISTERED",
 		altsyncram_component.power_up_uninitialized = "FALSE",
 		altsyncram_component.read_during_write_mode_port_a = "DONT_CARE",
-		altsyncram_component.widthad_a = 12,
-		altsyncram_component.width_a = 12,
+		altsyncram_component.widthad_a = 16,
+		altsyncram_component.width_a = 16,
 		altsyncram_component.width_byteena_a = 1;
 
 

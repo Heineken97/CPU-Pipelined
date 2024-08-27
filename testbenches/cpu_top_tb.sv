@@ -43,7 +43,7 @@ module cpu_top_tb;
     logic [15:0] data_from_memory_writeback;
     logic [15:0] alu_result_writeback;
     logic [3:0] rd_writeback;
-	 
+	 logic wre_execute;
 	 logic [1:0] select_writeback_data_mux_writeback;
 	 
 	 logic [15:0] control_signals;
@@ -162,7 +162,7 @@ module cpu_top_tb;
         .rs1_decode(instruction_decode[3:0]),
         .rs2_decode(instruction_decode[7:4]),
         .rd_decode(instruction_decode[11:8]),
-        .wre_execute(control_signals[9]),
+        .wre_execute(wre_execute),
         .write_memory_enable_execute(write_memory_enable_execute),
         .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
         .aluOp_execute(aluOp_execute),
@@ -203,7 +203,7 @@ module cpu_top_tb;
     ExecuteMemory_register ExecuteMemory_register_instance (
         .clk(clk),
         .reset(reset),
-        .wre_execute(control_signals[9]),
+        .wre_execute(wre_execute),
         .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
         .write_memory_enable_execute(write_memory_enable_execute),
         .ALUresult_in(alu_result_execute),

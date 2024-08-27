@@ -10,192 +10,192 @@
 # Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory/ROM.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/ROM.v 
+# Start time: 09:56:27 on Aug 27,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory/ROM.v 
 # -- Compiling module ROM
 # 
 # Top level modules:
 # 	ROM
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:27 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory/RAM.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v 
+# Start time: 09:56:27 on Aug 27,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/memory/RAM.v 
 # -- Compiling module RAM
 # 
 # Top level modules:
 # 	RAM
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:27 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/top.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/top.sv 
+# Start time: 09:56:27 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/top.sv 
 # -- Compiling module top
 # 
 # Top level modules:
 # 	top
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:27 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/PC_register.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/PC_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/PC_register.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/PC_register.sv 
 # -- Compiling module PC_register
 # 
 # Top level modules:
 # 	PC_register
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_2inputs.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/mux_2inputs.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_2inputs.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/mux_2inputs.sv 
 # -- Compiling module mux_2inputs
 # 
 # Top level modules:
 # 	mux_2inputs
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/FetchDecode_register.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/FetchDecode_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/FetchDecode_register.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/FetchDecode_register.sv 
 # -- Compiling module FetchDecode_register
 # 
 # Top level modules:
 # 	FetchDecode_register
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/Regfile_scalar.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/Regfile_scalar.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/Regfile_scalar.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/Regfile_scalar.sv 
 # -- Compiling module Regfile_scalar
-# ** Warning: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/Regfile_scalar.sv(8): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/Regfile_scalar.sv(8): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	Regfile_scalar
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/controlUnit.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/controlUnit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/controlUnit.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/controlUnit.sv 
 # -- Compiling module controlUnit
 # 
 # Top level modules:
 # 	controlUnit
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/DecodeExecute_register.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/DecodeExecute_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/DecodeExecute_register.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/DecodeExecute_register.sv 
 # -- Compiling module DecodeExecute_register
 # 
 # Top level modules:
 # 	DecodeExecute_register
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ALU.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ALU.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ALU.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ALU.sv 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/adder.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/adder.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/adder.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/adder.sv 
 # -- Compiling module adder
 # 
 # Top level modules:
 # 	adder
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv 
 # -- Compiling module ExecuteMemory_register
 # 
 # Top level modules:
 # 	ExecuteMemory_register
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv 
 # -- Compiling module MemoryWriteback_register
 # 
 # Top level modules:
 # 	MemoryWriteback_register
-# End time: 01:27:40 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/signExtend.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/signExtend.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:40 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/signExtend.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/signExtend.sv 
 # -- Compiling module signExtend
 # 
 # Top level modules:
 # 	signExtend
-# End time: 01:27:41 on Aug 26,2024, Elapsed time: 0:00:01
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/comparator_branch.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/comparator_branch.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:41 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/comparator_branch.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/comparator_branch.sv 
 # -- Compiling module comparator_branch
 # 
 # Top level modules:
 # 	comparator_branch
-# End time: 01:27:41 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_3inputs.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/mux_3inputs.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:41 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_3inputs.sv 
+# Start time: 09:56:28 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/mux_3inputs.sv 
 # -- Compiling module mux_3inputs
 # 
 # Top level modules:
 # 	mux_3inputs
-# End time: 01:27:41 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:28 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:41 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv 
+# Start time: 09:56:29 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv 
 # -- Compiling module hazard_detection_unit
 # 
 # Top level modules:
 # 	hazard_detection_unit
-# End time: 01:27:41 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:29 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches {C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv}
+# vlog -sv -work work +incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches {C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:27:41 on Aug 26,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches" C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv 
+# Start time: 09:56:29 on Aug 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches" C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv 
 # -- Compiling module cpu_top_tb
 # 
 # Top level modules:
 # 	cpu_top_tb
-# End time: 01:27:41 on Aug 26,2024, Elapsed time: 0:00:00
+# End time: 09:56:29 on Aug 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  cpu_top_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" cpu_top_tb 
-# Start time: 01:27:41 on Aug 26,2024
+# Start time: 09:56:29 on Aug 27,2024
 # Loading sv_std.std
 # Loading work.cpu_top_tb
 # Loading work.adder
@@ -218,40 +218,30 @@
 # Loading altera_mf_ver.altsyncram_body
 # Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
 # Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(102): [PCDPC] - Port size (4) does not match connection size (1) for port 'rd_load_execute'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv(2).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/u_hazard_detection File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/hazard_detection_unit.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(119): [PCDPC] - Port size (2) does not match connection size (1) for port 'select'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_2inputs.sv(3).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/mux_2inputs_nop File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/mux_2inputs.sv
-# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(161): Variable '/cpu_top_tb/control_signals[9]', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(113).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/DecodeExecute_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/DecodeExecute_register.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(208): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_execute'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(5).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(208): [PCDPC] - Port size (16) does not match connection size (4) for port 'rd_execute'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(10).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(208): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_memory'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(12).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(208): [PCDPC] - Port size (16) does not match connection size (4) for port 'rd_memory'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(17).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(228): [PCDPC] - Port size (12) does not match connection size (16) for port 'address'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v(40).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/RAM_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(228): [PCDPC] - Port size (12) does not match connection size (16) for port 'data'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v(42).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/RAM_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(228): [PCDPC] - Port size (12) does not match connection size (16) for port 'q'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v(44).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/RAM_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/memory/RAM.v
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(237): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_memory'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv(5).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv
-# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(237): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_writeback'. The port definition is at: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv(13).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv
-# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(290): Variable '/cpu_top_tb/select_nop_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(102).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
-# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(283): Variable '/cpu_top_tb/select_pc_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(153).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
-# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(270): Variable '/cpu_top_tb/select_writeback_data_mux_writeback', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(237).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
-# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(267): Variable '/cpu_top_tb/select_nop_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(102).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
-# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(266): Variable '/cpu_top_tb/select_pc_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(153).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(114): [PCDPC] - Port size (2) does not match connection size (1) for port 'select'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/mux_2inputs.sv(3).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/mux_2inputs_nop File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/mux_2inputs.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(203): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_execute'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(203): [PCDPC] - Port size (16) does not match connection size (4) for port 'rd_execute'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(10).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(203): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_memory'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(12).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(203): [PCDPC] - Port size (16) does not match connection size (4) for port 'rd_memory'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv(17).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/ExecuteMemory_register.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(232): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_memory'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv
+# ** Warning: (vsim-3015) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(232): [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_writeback'. The port definition is at: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv(13).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/core/MemoryWriteback_register.sv
+# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(285): Variable '/cpu_top_tb/select_nop_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(97).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
+# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(278): Variable '/cpu_top_tb/select_pc_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(148).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
+# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(265): Variable '/cpu_top_tb/select_writeback_data_mux_writeback', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(232).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
+# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(262): Variable '/cpu_top_tb/select_nop_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(97).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
+# ** Warning: (vsim-3839) C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(261): Variable '/cpu_top_tb/select_pc_mux', driven via a port connection, is multiply driven. See C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(148).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb File: C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv
 # 
 # add wave *
 # view structure
@@ -259,9 +249,9 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ** Note: $finish    : C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(297)
+# ** Note: $finish    : C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv(292)
 #    Time: 305 ps  Iteration: 1  Instance: /cpu_top_tb
 # 1
-# Break in Module cpu_top_tb at C:/Users/Joseph/Documents/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv line 297
-# End time: 01:28:32 on Aug 26,2024, Elapsed time: 0:00:51
-# Errors: 0, Warnings: 17
+# Break in Module cpu_top_tb at C:/Users/Joseph/Documents/ProyectosQuartus/Pipelined/CPU-Pipelined/testbenches/cpu_top_tb.sv line 292
+# End time: 09:56:46 on Aug 27,2024, Elapsed time: 0:00:17
+# Errors: 0, Warnings: 12
