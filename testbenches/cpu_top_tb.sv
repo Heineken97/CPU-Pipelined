@@ -1,10 +1,7 @@
 `timescale 1ps/1ps
 module cpu_top_tb;
-
-    // Declaración de señales
     logic clk;
     logic reset;
-	 //logic nop;
     logic [15:0] pc_address;
     logic [15:0] pc_offset;
     logic [15:0] pc_incremented;
@@ -13,7 +10,6 @@ module cpu_top_tb;
     logic [15:0] pc_mux_output;
     logic [15:0] instruction_fetch;
     logic [15:0] instruction_decode;
-    //logic wre_decode;
     logic [15:0] nop_mux_output;
     logic select_nop_mux;
     logic [15:0] writeback_data;
@@ -23,7 +19,6 @@ module cpu_top_tb;
     logic [15:0] rd3;
     logic [15:0] extended_label;
     logic [15:0] pc_decode;
-    //logic wre_execute;
     logic write_memory_enable_execute;
     logic [1:0] select_writeback_data_mux_execute;
     logic [3:0] aluOp_execute;
@@ -100,7 +95,7 @@ module cpu_top_tb;
 	
     // Instancia de la unidad de detección de riesgos
     hazard_detection_unit u_hazard_detection (
-        .rd_load_execute(rd_load_execute),
+        .rd_load_execute(instruction_decode[11:8]),///
         .write_memory_enable_execute(write_memory_enable_execute),
         .rs1_decode(instruction_decode[3:0]),
         .rs2_decode(instruction_decode[7:4]),
@@ -208,7 +203,7 @@ module cpu_top_tb;
     ExecuteMemory_register ExecuteMemory_register_instance (
         .clk(clk),
         .reset(reset),
-        .wre_execute(wre_execute),
+        .wre_execute(control_signals[9]),
         .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
         .write_memory_enable_execute(write_memory_enable_execute),
         .ALUresult_in(alu_result_execute),
