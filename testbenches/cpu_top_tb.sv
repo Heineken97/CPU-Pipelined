@@ -11,7 +11,7 @@ module cpu_top_tb;
     logic [15:0] instruction_fetch;
     logic [15:0] instruction_decode;
     logic [15:0] nop_mux_output;
-    logic select_nop_mux;
+    logic [1:0] select_nop_mux;
     logic [15:0] writeback_data;
     logic wre_writeback;
     logic [15:0] rd1;

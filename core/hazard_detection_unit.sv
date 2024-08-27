@@ -5,7 +5,7 @@ module hazard_detection_unit(
     input logic [3:0] rs2_decode,
     input logic [3:0] rs1_execute,
     input logic [3:0] rs2_execute,
-    output logic nop
+    output logic [1:0] nop
 );
 
 always_comb begin

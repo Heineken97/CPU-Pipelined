@@ -18,7 +18,7 @@ module top (
 	logic [15:0] control_signals;
 	// mux de la unidad de control
 	logic [15:0] nop_mux_output;
-	logic select_nop_mux;
+	logic [1:0] select_nop_mux;
 	// banco de registros
 	logic [15:0] writeback_data;
 	logic wre_writeback;

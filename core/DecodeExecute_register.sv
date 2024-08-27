@@ -4,18 +4,15 @@ module DecodeExecute_register (
     input logic [15:0] nop_mux_output_in,	 
     input logic [15:0] srcA_in,
     input logic [15:0] srcB_in,
-	 
 	 input logic [3:0] rs1_decode,
 	 input logic [3:0] rs2_decode,
 	 input logic [3:0] rd_decode,
-	 
     output logic wre_execute,
     output logic write_memory_enable_execute,
     output logic [1:0] select_writeback_data_mux_execute,
     output logic [3:0] aluOp_execute,
     output logic [15:0] srcA_out,
     output logic [15:0] srcB_out,
-	 
 	 output logic [3:0] rs1_execute,
 	 output logic [3:0] rs2_execute,
 	 output logic [3:0] rd_execute
@@ -50,7 +47,6 @@ module DecodeExecute_register (
 				rd <= rd_decode;
         end
     end
-
     assign srcA_out = srcA;
     assign srcB_out = srcB;
 	 assign rs1_execute = rs1;
