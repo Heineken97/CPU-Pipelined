@@ -49,7 +49,7 @@ module cpu_top_tb;
 	 logic [15:0] control_signals;
 
     // Generación de reloj
-    always #5 clk = ~clk;
+    always #10 clk = ~clk;
 
     // Instancia del sumador del PC
     adder pc_add (
@@ -118,11 +118,11 @@ module cpu_top_tb;
         .out(nop_mux_output)
     );
 	 
-    // Instancia del extensor de signos
-    signExtend sign_extend_instance (
-        .label(instruction_decode[11:8]),
-        .SignExtLabel(extended_label) 
-    );
+    // Instancia del extensor de ceros
+	zeroExtend zero_extend_instance (
+		.label(instruction_decode[11:8]),
+		.ZeroExtLabel(extended_label) 
+	);
 	 
     // Instancia del sumador de etiquetas de branch
     adder branch_label_pc_add (
@@ -254,6 +254,7 @@ module cpu_top_tb;
 
     // Proceso de prueba
     initial begin
+	 
         // Inicialización de señales
         clk = 0;
         reset = 1;
@@ -267,6 +268,7 @@ module cpu_top_tb;
         // Liberar reset después de un ciclo de reloj
         #10 reset = 0;
         
+		  /*
         // Secuencia de prueba 1: Ejecución de una instrucción simple
         // Establecer instrucciones y señales para la prueba
         // Puedes agregar valores específicos según tu diseño
@@ -287,6 +289,9 @@ module cpu_top_tb;
 
         // Esperar varios ciclos para observar el comportamiento del diseño
         repeat(10) @(posedge clk);
+		  */
+		  
+		  #2000
 
         // Finalizar la simulación
         $finish;

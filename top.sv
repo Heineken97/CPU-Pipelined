@@ -123,10 +123,10 @@ module top (
       .select(select_nop_mux),
       .out(nop_mux_output)
 	);
-	// Instancia del extensor de signos
-	signExtend sign_extend_instance (
+	// Instancia del extensor de ceros
+	zeroExtend zero_extend_instance (
 		.label(instruction_decode[11:8]),
-		.SignExtLabel(extended_label) 
+		.ZeroExtLabel(extended_label) 
 	); 
 	// Instancia del sumador de etiquetas de branch
 	adder branch_label_pc_add (

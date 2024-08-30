@@ -1,6 +1,6 @@
--- Copyright (C) 2018  Intel Corporation. All rights reserved.
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
 -- Your use of Intel Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
+-- and other software and tools, and any partner logic 
 -- functions, and any output files from any of the foregoing 
 -- (including device programming or simulation files), and any 
 -- associated documentation or information are expressly subject 
@@ -10,32 +10,29 @@
 -- agreement, including, without limitation, that your use is for
 -- the sole purpose of programming logic devices manufactured by
 -- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details.
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
 
 -- Quartus Prime generated Memory Initialization File (.mif)
 
 WIDTH=16;
 DEPTH=65536;
 
-ADDRESS_RADIX=HEX;
+ADDRESS_RADIX=UNS;
 DATA_RADIX=BIN;
 
 CONTENT BEGIN
-	00000  :   0000000000000000;
-	00001  :   0000001100100001;
-	00002  :   0000000000000000;
-	00003  :   0001001100010010;
-	00004  :   0000000000000000;
-	00005  :   0010001100100001;
-	00006  :   0000000000000000;
-	00007  :   0011001100010010;
-	00008  :   0000000000000000;
-	00009  :   1010000000010011;
-	0000A  :   0000000000000000;
-	0000B  :   1001010000010000;
-	0000C  :   0000000000000000;
-	0000D  :   0100111110001000;
-	0000E  :   0000000000000000;
-	0000F  :   0100111110001000;
-	[00010..0FFFF]  :   0000000000000000;
+	0      :   0100111100010001;
+	1      :   1111111111111111;
+	2      :   0000000011111111;
+	3      :   1111111100000000;
+	[4..16]  :   1111111111111111;
+	17     :   0001001100100001;
+	[18..22]  :   0000000000000000;
+	23     :   1010000000010011;
+	[24..27]  :   0000000000000000;
+	28     :   1001010000010000;
+	[29..33]  :   0000000000000000;
+	34     :   0001010100110100;
+	[35..65535]  :   0000000000000000;
 END;
