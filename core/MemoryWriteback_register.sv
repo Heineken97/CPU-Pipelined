@@ -1,22 +1,41 @@
 module MemoryWriteback_register (
     input logic clk,
-	 input logic reset,
-	 input logic [15:0] calcData_in,
-	 output logic [15:0] calcData_out
+    input logic reset,
+    input logic wre_memory,
+    input logic select_writeback_data_mux_memory,
+    input logic [3:0] rd_memory, 
+    input logic [15:0] data_from_memory_in,
+    input logic [15:0] calc_data_in,
+    
+    output logic [15:0] data_from_memory_out,
+    output logic [15:0] calc_data_out,
+    output logic wre_writeback,
+    output logic select_writeback_data_mux_writeback,
+    output logic [3:0] rd_writeback
 );
 
-    logic [15:0] calcData;
+    logic [15:0] data_calculated;
+    logic [15:0] data_memory;
 
     // Proceso de escritura en el registro
-    always_ff @(posedge clk) begin
-		  if (reset) begin
-            calcData <= 16'b0; 
-		  end else begin
-				calcData <= calcData_in;
-		  end
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            data_calculated <= 16'b0; 
+            data_memory <= 16'b0;
+            wre_writeback <= 1'b0;
+            select_writeback_data_mux_writeback <= 1'b0;
+            rd_writeback <= 4'b0;  // Asumiendo 4 bits
+        end else begin
+            data_calculated <= calc_data_in;
+            data_memory <= data_from_memory_in;
+            wre_writeback <= wre_memory;
+            select_writeback_data_mux_writeback <= select_writeback_data_mux_memory;
+            rd_writeback <= rd_memory;
+        end
     end
 
     // Salidas del registro
-    assign calcData_out = calcData;
+    assign calc_data_out = data_calculated;
+    assign data_from_memory_out = data_memory;
     
 endmodule
