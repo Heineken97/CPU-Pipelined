@@ -291,7 +291,7 @@ module cpu_top_tb;
         repeat(10) @(posedge clk);
 		  */
 		  
-		  #2000
+		  #540
 
         // Finalizar la simulación
         $finish;
