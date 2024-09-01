@@ -16,6 +16,8 @@ module comparator_branch (
                     select_pc_mux = 2'b00; // toma la direccion de PC+1
                 end
             end
+            
+
             default: begin
                 select_pc_mux = 2'b00; // Valor por defecto = PC+1
             end

@@ -1,5 +1,5 @@
 Analysis & Elaboration report for CPU-Pipelined
-Thu Aug 29 23:03:51 2024
+Sun Sep 01 15:34:22 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -21,10 +21,9 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  13. Port Connectivity Checks: "DecodeExecute_register:DecodeExecute_register_instance"
  14. Port Connectivity Checks: "Regfile_scalar:regfile_instance"
  15. Port Connectivity Checks: "mux_2inputs:mux_2inputs_nop"
- 16. Port Connectivity Checks: "FetchDecode_register:FetchDecode_register_instance"
- 17. Port Connectivity Checks: "PC_register:pc_reg"
- 18. Port Connectivity Checks: "adder:pc_add"
- 19. Analysis & Elaboration Messages
+ 16. Port Connectivity Checks: "PC_register:pc_reg"
+ 17. Port Connectivity Checks: "adder:pc_add"
+ 18. Analysis & Elaboration Messages
 
 
 
@@ -51,7 +50,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Thu Aug 29 23:03:51 2024       ;
+; Analysis & Elaboration Status ; Successful - Sun Sep 01 15:34:22 2024       ;
 ; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                 ; CPU-Pipelined                               ;
 ; Top-level Entity Name         ; top                                         ;
@@ -400,15 +399,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "FetchDecode_register:FetchDecode_register_instance"                                                                                                                             ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; nop  ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "PC_register:pc_reg"                                                                                                                                                             ;
 +------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
@@ -433,7 +423,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Aug 29 23:03:23 2024
+    Info: Processing started: Sun Sep 01 15:33:58 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU-Pipelined -c CPU-Pipelined --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -484,10 +474,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file testben
 Info (12021): Found 1 design units, including 1 entities, in source file core/zeroextend.sv
     Info (12023): Found entity 1: zeroExtend File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/zeroExtend.sv Line: 1
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "adder" for hierarchy "adder:pc_add" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 72
-Info (12128): Elaborating entity "mux_2inputs" for hierarchy "mux_2inputs:mux_2inputs_PC" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 79
-Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 87
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 93
+Info (12128): Elaborating entity "adder" for hierarchy "adder:pc_add" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 73
+Info (12128): Elaborating entity "mux_2inputs" for hierarchy "mux_2inputs:mux_2inputs_PC" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 80
+Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 88
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 94
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 81
 Info (12130): Elaborated megafunction instantiation "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 81
 Info (12133): Instantiated megafunction "ROM:rom_memory|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v Line: 81
@@ -514,17 +504,17 @@ Info (12128): Elaborating entity "decode_61a" for hierarchy "ROM:rom_memory|alts
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/db/mux_chb.tdf Line: 23
 Info (12128): Elaborating entity "mux_chb" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|mux_chb:mux2" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/db/altsyncram_q4g1.tdf Line: 41
-Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 103
-Info (12128): Elaborating entity "hazard_detection_unit" for hierarchy "hazard_detection_unit:u_hazard_detection" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 113
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control_unit_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 118
-Info (12128): Elaborating entity "zeroExtend" for hierarchy "zeroExtend:zero_extend_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 130
-Info (12128): Elaborating entity "Regfile_scalar" for hierarchy "Regfile_scalar:regfile_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 148
-Info (12128): Elaborating entity "comparator_branch" for hierarchy "comparator_branch:comparator_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 155
-Info (12128): Elaborating entity "DecodeExecute_register" for hierarchy "DecodeExecute_register:DecodeExecute_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 175
-Info (12128): Elaborating entity "mux_3inputs" for hierarchy "mux_3inputs:mux_alu_forward_A" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 183
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 198
-Info (12128): Elaborating entity "ExecuteMemory_register" for hierarchy "ExecuteMemory_register:ExecuteMemory_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 217
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 225
+Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 104
+Info (12128): Elaborating entity "hazard_detection_unit" for hierarchy "hazard_detection_unit:u_hazard_detection" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 118
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control_unit_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 123
+Info (12128): Elaborating entity "zeroExtend" for hierarchy "zeroExtend:zero_extend_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 135
+Info (12128): Elaborating entity "Regfile_scalar" for hierarchy "Regfile_scalar:regfile_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 153
+Info (12128): Elaborating entity "comparator_branch" for hierarchy "comparator_branch:comparator_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 160
+Info (12128): Elaborating entity "DecodeExecute_register" for hierarchy "DecodeExecute_register:DecodeExecute_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 180
+Info (12128): Elaborating entity "mux_3inputs" for hierarchy "mux_3inputs:mux_alu_forward_A" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 188
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 203
+Info (12128): Elaborating entity "ExecuteMemory_register" for hierarchy "ExecuteMemory_register:ExecuteMemory_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 222
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 230
 Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v Line: 85
 Info (12130): Elaborated megafunction instantiation "RAM:RAM_instance|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v Line: 85
 Info (12133): Instantiated megafunction "RAM:RAM_instance|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v Line: 85
@@ -547,67 +537,67 @@ Warning (287001): Assertion warning: Not using extra address lines in altsyncram
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_78n1.tdf
     Info (12023): Found entity 1: altsyncram_78n1 File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/db/altsyncram_78n1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_78n1" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_78n1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "MemoryWriteback_register" for hierarchy "MemoryWriteback_register:MemoryWriteback_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 240
+Info (12128): Elaborating entity "MemoryWriteback_register" for hierarchy "MemoryWriteback_register:MemoryWriteback_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 245
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 48
-    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 63
-Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Warning (12110): Net "select_writeback_data_mux_memory[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 49
+    Warning (12110): Net "select_writeback_data_mux_writeback[1]" is missing source, defaulting to GND File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv Line: 64
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 58 warnings
-    Info: Peak virtual memory: 4794 megabytes
-    Info: Processing ended: Thu Aug 29 23:03:51 2024
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Peak virtual memory: 4788 megabytes
+    Info: Processing ended: Sun Sep 01 15:34:22 2024
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:37
 
 

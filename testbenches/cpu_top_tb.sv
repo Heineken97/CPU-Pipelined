@@ -10,6 +10,7 @@ module cpu_top_tb;
     logic [15:0] pc_mux_output;
     logic [15:0] instruction_fetch;
     logic [15:0] instruction_decode;
+	 logic [1:0] flush;
     logic [15:0] nop_mux_output;
     logic [1:0] select_nop_mux;
     logic [15:0] writeback_data;
@@ -52,41 +53,41 @@ module cpu_top_tb;
     always #10 clk = ~clk;
 
     // Instancia del sumador del PC
-    adder pc_add (
-        .a(pc_address),
-        .b(pc_offset),
-        .y(pc_incremented)
-    );
-	 
-    // Instancia del MUX del PC
-    mux_2inputs mux_2inputs_PC (
-        .data0(pc_incremented),
-        .data1(branch_address),
-        .select(select_pc_mux),
-        .out(pc_mux_output)
-    );
-	 
-    // Instancia del registro del PC
-    PC_register pc_reg (
-        .clk(clk),
-        .reset(reset),
-        .nop(select_nop_mux),
-        .address_in(pc_mux_output),
-        .address_out(pc_address)
-    );
-
-    // Instancia de la memoria ROM
-    ROM rom_memory (
-        .address(pc_address),
-        .clock(clk),
-        .q(instruction_fetch)
-    );
+	adder pc_add (
+		.a(pc_mux_output),
+		.b(pc_offset),
+		.y(pc_incremented)
+	);
+	
+	// Instancia del MUX del PC
+	mux_2inputs mux_2inputs_PC (
+		.data0(pc_address),
+		.data1(branch_address),
+		.select(select_pc_mux),
+		.out(pc_mux_output)
+	);
+	
+	// Instancia del registro del PC
+	PC_register pc_reg (
+		.clk(clk),
+      .reset(reset),
+      .nop(select_nop_mux),
+      .address_in(pc_incremented),
+      .address_out(pc_address)
+	);
+	
+	// Instancia de la memoria ROM
+	ROM rom_memory (
+		.address(pc_mux_output),
+      .clock(clk),
+      .q(instruction_fetch)
+	);
 
     // Instancia del registro FetchDecode
     FetchDecode_register FetchDecode_register_instance (
         .clk(clk),
         .reset(reset),
-        .nop(select_nop_mux),
+        .flush(flush),
         .pc(pc_address),
         .instruction_in(instruction_fetch),
         .pc_decode(pc_decode),
@@ -95,13 +96,17 @@ module cpu_top_tb;
 	
     // Instancia de la unidad de detección de riesgos
     hazard_detection_unit u_hazard_detection (
-        .rd_load_execute(instruction_decode[11:8]),///
+		  .opcode(instruction_decode[15:12]),
+        .rd_load_execute(instruction_decode[11:8]),
         .write_memory_enable_execute(write_memory_enable_execute),
+		  .regfile_data_1(rd1),
+		  .regfile_data_2(rd2),
         .rs1_decode(instruction_decode[3:0]),
         .rs2_decode(instruction_decode[7:4]),
         .rs1_execute(rs1_execute),
         .rs2_execute(rs2_execute),
-        .nop(select_nop_mux)
+        .nop(select_nop_mux),
+		  .flush(flush)
     );
 	 
     // Instancia de la unidad de control
