@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/simulation/modelsim
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1725226498
+Z2 !s110 1725238153
 !i10b 1
 !s100 9P38b4ok8>WNK?GgSaK;o0
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1725226498.000000
+Z6 !s108 1725238153.000000
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/adder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/adder.sv|
 !i113 1
@@ -37,7 +37,7 @@ Z8 !s92 -sv -work work {+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pi
 Z9 tCvgOpt 0
 vALU
 R1
-R2
+Z10 !s110 1725238152
 !i10b 1
 !s100 RF5zc4IOiR_4fC2^iMePG1
 R3
@@ -45,7 +45,7 @@ ITX3N@OoQzF8dGFhLDK4n_3
 R4
 S1
 R0
-Z10 w1724921572
+Z11 w1724921572
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv
 !i122 9
@@ -54,7 +54,7 @@ R5
 r1
 !s85 0
 31
-R6
+Z12 !s108 1725238152.000000
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv|
 !i113 1
@@ -64,7 +64,7 @@ R9
 n@a@l@u
 vcomparator_branch
 R1
-Z11 !s110 1725226500
+R2
 !i10b 1
 !s100 Ti>n:C<RZREK0F4KW`VDG2
 R3
@@ -81,7 +81,7 @@ R5
 r1
 !s85 0
 31
-Z12 !s108 1725226499.000000
+R6
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/comparator_branch.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/comparator_branch.sv|
 !i113 1
@@ -90,7 +90,7 @@ R8
 R9
 vcontrolUnit
 R1
-Z13 !s110 1725226497
+R10
 !i10b 1
 !s100 3JZTD=Bn;NdzfBcg<j3jT1
 R3
@@ -98,16 +98,16 @@ IMgO:HlzY6fT:2Z0QoSR4H0
 R4
 S1
 R0
-R10
+R11
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv
 !i122 7
-Z14 L0 1 56
+Z13 L0 1 56
 R5
 r1
 !s85 0
 31
-Z15 !s108 1725226497.000000
+R12
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv|
 !i113 1
@@ -117,24 +117,24 @@ R9
 ncontrol@unit
 vcpu_top_tb
 R1
-!s110 1725226501
+Z14 !s110 1725238155
 !i10b 1
-!s100 7YLV>jZ[8?7NY[lOa__Uh3
+!s100 PeLmC;6:GeCQ6S8];jz=;0
 R3
-IMETNYFUSTM4m^DOYzMoJB0
+ITJ@=oSVB_G@0:6M8lO41j2
 R4
 S1
 R0
-w1725225664
+w1725236227
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv
-!i122 17
-L0 2 303
+!i122 18
+L0 2 309
 R5
 r1
 !s85 0
 31
-!s108 1725226501.000000
+!s108 1725238155.000000
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv|
 !i113 1
@@ -143,7 +143,7 @@ R7
 R9
 vDecodeExecute_register
 R1
-R2
+R10
 !i10b 1
 !s100 [oBdVWR@]FalWTBVno@2U2
 R3
@@ -151,16 +151,16 @@ I?7BFXE^]0Y=ET2z<GP:k72
 R4
 S1
 R0
-R10
+R11
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv
 !i122 8
-R14
+R13
 R5
 r1
 !s85 0
 31
-R15
+R12
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv|
 !i113 1
@@ -170,24 +170,24 @@ R9
 n@decode@execute_register
 vExecuteMemory_register
 R1
-Z16 !s110 1725226499
+R2
 !i10b 1
-!s100 Lj=`>;Mh[;`kOQiI<0]ej3
+!s100 BERWCXaA^[Z_^E:X3;>Ua1
 R3
-I=:hbO3DU9@^nDY]<IGA<=2
+I3d;85k?1eSY=W778JoQ1D1
 R4
 S1
 R0
-w1724622644
+w1725235496
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv
 !i122 11
-L0 1 59
+L0 1 71
 R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv|
 !i113 1
@@ -197,7 +197,7 @@ R9
 n@execute@memory_register
 vFetchDecode_register
 R1
-R13
+Z15 !s110 1725238151
 !i10b 1
 !s100 >NBK`NH3=dH<b4GN=0R<73
 R3
@@ -214,7 +214,7 @@ R5
 r1
 !s85 0
 31
-Z17 !s108 1725226496.000000
+Z16 !s108 1725238151.000000
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/FetchDecode_register.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/FetchDecode_register.sv|
 !i113 1
@@ -222,9 +222,35 @@ R7
 R8
 R9
 n@fetch@decode_register
+vforwarding_unit
+R1
+Z17 !s110 1725238154
+!i10b 1
+!s100 d9=SFO`k1_73GV4eWj8Y10
+R3
+I0<WT>HfA:@8iz3T8F[5:b2
+R4
+S1
+R0
+w1725238077
+8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv
+!i122 16
+L0 1 48
+R5
+r1
+!s85 0
+31
+Z18 !s108 1725238154.000000
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv|
+!i113 1
+R7
+R8
+R9
 vhazard_detection_unit
 R1
-R11
+R17
 !i10b 1
 !s100 QHa`;C^P6gYUFnX9NZ7o]3
 R3
@@ -241,7 +267,7 @@ R5
 r1
 !s85 0
 31
-Z18 !s108 1725226500.000000
+R18
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/hazard_detection_unit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/hazard_detection_unit.sv|
 !i113 1
@@ -250,24 +276,24 @@ R8
 R9
 vMemoryWriteback_register
 R1
-R16
+R2
 !i10b 1
-!s100 UWU;=m0oC23k1n]BUR;Y^0
+!s100 EgfS04k;2`8;=;<QXi8O21
 R3
-IHImL3GTfEd9iY?SWTe7=?0
+IJT=HI@2o>dBQAfSgEMV8e0
 R4
 S1
 R0
-R10
+w1725235477
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv
 !i122 12
-L0 1 41
+L0 1 53
 R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv|
 !i113 1
@@ -277,7 +303,7 @@ R9
 n@memory@writeback_register
 vmux_2inputs
 R1
-Z19 !s110 1725226496
+R15
 !i10b 1
 !s100 em5G30f1JkX_gh6L1MW850
 R3
@@ -294,7 +320,7 @@ R5
 r1
 !s85 0
 31
-R17
+R16
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_2inputs.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_2inputs.sv|
 !i113 1
@@ -303,7 +329,7 @@ R8
 R9
 vmux_3inputs
 R1
-R11
+R17
 !i10b 1
 !s100 i9CNad55f0;[P6[kGH=JM2
 R3
@@ -329,7 +355,7 @@ R8
 R9
 vPC_register
 R1
-R19
+R15
 !i10b 1
 !s100 A78QcKT?OP9cgA[9SI6Sm0
 R3
@@ -346,7 +372,7 @@ R5
 r1
 !s85 0
 31
-R17
+R16
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/PC_register.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/PC_register.sv|
 !i113 1
@@ -355,14 +381,14 @@ R8
 R9
 n@p@c_register
 vRAM
-R19
+Z19 !s110 1725238150
 !i10b 1
 !s100 SlcMk?1@bFf^0bcGN6LF52
 R3
 IY><75Slh^he@0XTTAg>@i2
 R4
 R0
-R10
+R11
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v
 !i122 1
@@ -371,7 +397,7 @@ R5
 r1
 !s85 0
 31
-Z20 !s108 1725226495.000000
+Z20 !s108 1725238150.000000
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v|
 !i113 1
@@ -381,7 +407,7 @@ R9
 n@r@a@m
 vRegfile_scalar
 R1
-R13
+R10
 !i10b 1
 !s100 bf2d_>DBA1REI^WgSNM2I2
 R3
@@ -398,7 +424,7 @@ R5
 r1
 !s85 0
 31
-R15
+R16
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/Regfile_scalar.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/Regfile_scalar.sv|
 !i113 1
@@ -407,7 +433,7 @@ R8
 R9
 n@regfile_scalar
 vROM
-!s110 1725226495
+R19
 !i10b 1
 !s100 3C532ZA:Q9j60?l@ZQa_X1
 R3
@@ -433,24 +459,24 @@ R9
 n@r@o@m
 vtop
 R1
-R19
+R15
 !i10b 1
-!s100 c7?7o@8HTI<9k]Z0jYKi>0
+!s100 C[R`EN1=e0YDNkP__X;6M2
 R3
-Ig:1=SMF45X9O=N?7[39h=1
+IoDe0;_BP[2<a5ZS<gF_[V2
 R4
 S1
 R0
-w1725225657
+w1725236252
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv
 !i122 2
-L0 1 253
+L0 1 281
 R5
 r1
 !s85 0
 31
-R17
+R20
 !s107 C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined|C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv|
 !i113 1
@@ -459,7 +485,7 @@ R7
 R9
 vzeroExtend
 R1
-R11
+R14
 !i10b 1
 !s100 z^jjI6UHL7f5jWc;DmPNm2
 R3
@@ -470,7 +496,7 @@ R0
 w1724979488
 8C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/zeroExtend.sv
 FC:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/zeroExtend.sv
-!i122 16
+!i122 17
 L0 1 6
 R5
 r1

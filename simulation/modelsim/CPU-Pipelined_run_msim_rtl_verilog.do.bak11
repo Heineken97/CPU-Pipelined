@@ -21,6 +21,7 @@ vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipel
 vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/comparator_branch.sv}
 vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_3inputs.sv}
 vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/hazard_detection_unit.sv}
+vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv}
 vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/zeroExtend.sv}
 
 vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/testbenches {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv}

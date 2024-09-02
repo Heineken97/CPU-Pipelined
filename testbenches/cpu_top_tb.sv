@@ -25,6 +25,10 @@ module cpu_top_tb;
     logic [3:0] aluOp_execute;
     logic [3:0] rs1_execute;
     logic [3:0] rs2_execute;
+	 logic [3:0] rs1_memory;
+    logic [3:0] rs2_memory;
+	 logic [3:0] rs1_writeback;
+    logic [3:0] rs2_writeback;
     logic [3:0] rd_execute;
     logic [15:0] alu_src_A;
     logic [15:0] alu_src_B;
@@ -203,26 +207,47 @@ module cpu_top_tb;
         .srcB(alu_src_B),
         .result(alu_result_execute)
     );
+	 
+	 // Instancia del módulo forwarding_unit
+    forwarding_unit forwarding_unit_instance (
+        .rs1_execute(rs1_execute),
+        .rs2_execute(rs2_execute),
+        .rs1_memory(rs1_memory),
+        .rs2_memory(rs2_memory),
+        .rs1_writeback(rs1_writeback),
+        .rs2_writeback(rs2_writeback),
+        .rd_memory(rd_memory),
+        .rd_writeback(rd_writeback),
+        .write_memory_enable_execute(write_memory_enable_execute),
+        .wre_memory(wre_memory),
+        .wre_writeback(wre_writeback),
+        .select_forward_mux_A(select_forward_mux_A),
+        .select_forward_mux_B(select_forward_mux_B)
+    );
 
     // Instancia del registro ExecuteMemory
     ExecuteMemory_register ExecuteMemory_register_instance (
-        .clk(clk),
-        .reset(reset),
-        .wre_execute(wre_execute),
-        .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
-        .write_memory_enable_execute(write_memory_enable_execute),
-        .ALUresult_in(alu_result_execute),
-        .srcA_execute(srcA_execute),
-        .srcB_execute(srcB_execute),
-        .rd_execute(rd_execute),
-        .wre_memory(wre_memory),
-        .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
-        .write_memory_enable_memory(write_memory_enable_memory),
-        .ALUresult_out(alu_result_memory),
-        .srcA_memory(srcA_memory),
-        .srcB_memory(srcB_memory),
-        .rd_memory(rd_memory)
-    );
+		.clk(clk),
+      .reset(reset),
+      .wre_execute(wre_execute),
+      .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
+      .write_memory_enable_execute(write_memory_enable_execute),
+		.rs1_execute(rs1_execute),
+      .rs2_execute(rs1_execute),
+      .ALUresult_in(alu_result_execute),
+      .srcA_execute(srcA_execute),
+      .srcB_execute(alu_src_B),
+      .rd_execute(rd_execute),
+      .wre_memory(wre_memory),
+      .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
+      .write_memory_enable_memory(write_memory_enable_memory),
+		.rs1_memory(rs1_memory),
+      .rs2_memory(rs2_memory),
+      .ALUresult_out(alu_result_memory),
+      .srcA_memory(srcA_memory),
+      .srcB_memory(srcB_memory),
+      .rd_memory(rd_memory)
+	);
 
     // Instancia de la RAM
     RAM RAM_instance(
@@ -235,19 +260,23 @@ module cpu_top_tb;
 
     // Instancia del registro MemoryWriteback
     MemoryWriteback_register MemoryWriteback_register_instance (
-        .clk(clk),
-        .reset(reset),
-        .wre_memory(wre_memory),
-        .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
-        .rd_memory(rd_memory), 
-        .data_from_memory_in(data_from_memory),
-        .calc_data_in(alu_result_memory),
-        .data_from_memory_out(data_from_memory_writeback),
-        .calc_data_out(alu_result_writeback),
-        .wre_writeback(wre_writeback),
-        .select_writeback_data_mux_writeback(select_writeback_data_mux_writeback),
-        .rd_writeback(rd_writeback)
-    );
+		.clk(clk),
+      .reset(reset),
+      .wre_memory(wre_memory),
+      .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
+		.rs1_memory(rs1_memory),
+      .rs2_memory(rs2_memory),
+      .rd_memory(rd_memory), 
+      .data_from_memory_in(data_from_memory),
+      .calc_data_in(alu_result_memory),
+      .data_from_memory_out(data_from_memory_writeback),
+      .calc_data_out(alu_result_writeback),
+      .wre_writeback(wre_writeback),
+      .select_writeback_data_mux_writeback(select_writeback_data_mux_writeback),
+		.rs1_writeback(rs1_writeback),
+      .rs2_writeback(rs2_writeback),
+      .rd_writeback(rd_writeback)
+	);
 
     // Instancia del MUX de writeback
     mux_2inputs mux_2inputs_writeback (
@@ -261,42 +290,19 @@ module cpu_top_tb;
     initial begin
 	 
         // Inicialización de señales
-        clk = 0;
         reset = 1;
+		  clk = 0;
         pc_offset = 16'h0001;
         select_pc_mux = 0;
         select_nop_mux = 0;
         select_forward_mux_A = 0;
         select_forward_mux_B = 0;
         select_writeback_data_mux_writeback = 0;
+        reset = 0;
+       
         
-        // Liberar reset después de un ciclo de reloj
-        #10 reset = 0;
-        
-		  /*
-        // Secuencia de prueba 1: Ejecución de una instrucción simple
-        // Establecer instrucciones y señales para la prueba
-        // Puedes agregar valores específicos según tu diseño
-
-        // Esperar varios ciclos para observar el comportamiento del diseño
-        repeat(10) @(posedge clk);
-        
-        // Secuencia de prueba 2: Ejecución de un branch
-        select_pc_mux = 1;  // Seleccionar branch address
-        #10;
-        
-        // Esperar varios ciclos para observar el comportamiento del diseño
-        repeat(10) @(posedge clk);
-
-        // Secuencia de prueba 3: Simular un stall (NOP)
-        select_nop_mux = 1;  // Activar NOP mux
-        #10;
-
-        // Esperar varios ciclos para observar el comportamiento del diseño
-        repeat(10) @(posedge clk);
-		  */
 		  
-		  #540
+		  #500
 
         // Finalizar la simulación
         $finish;

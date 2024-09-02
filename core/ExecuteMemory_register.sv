@@ -4,6 +4,8 @@ module ExecuteMemory_register (
     input logic wre_execute,
     input logic select_writeback_data_mux_execute,
     input logic write_memory_enable_execute,
+	 input logic [3:0] rs1_execute,
+    input logic [3:0] rs2_execute,
     input logic [15:0] ALUresult_in,
     input logic [15:0] srcA_execute,
     input logic [15:0] srcB_execute,
@@ -11,6 +13,8 @@ module ExecuteMemory_register (
     output logic wre_memory,
     output logic select_writeback_data_mux_memory,
     output logic write_memory_enable_memory,
+	 output logic [3:0] rs1_memory,
+    output logic [3:0] rs2_memory,
     output logic [15:0] ALUresult_out,
     output logic [15:0] srcA_memory,
     output logic [15:0] srcB_memory,
@@ -18,6 +22,8 @@ module ExecuteMemory_register (
 );
 
     // Registros internos
+	 logic [3:0] rs1;
+	 logic [3:0] rs2;
     logic [15:0] ALUresult;
     logic wre;
     logic select_writeback_data_mux;
@@ -29,6 +35,8 @@ module ExecuteMemory_register (
     // Proceso de escritura en el registro
     always_ff @(posedge clk) begin
         if (reset) begin
+				rs1 <= 16'b0;
+				rs2 <= 16'b0;
             ALUresult <= 16'b0;
             wre <= 1'b0;
             select_writeback_data_mux <= 1'b0;
@@ -37,6 +45,8 @@ module ExecuteMemory_register (
             srcB <= 16'b0;
             rd <= 16'b0;
         end else begin
+				rs1 <= rs1_execute;
+				rs2 <= rs2_execute;
             ALUresult <= ALUresult_in;
             wre <= wre_execute;
             select_writeback_data_mux <= select_writeback_data_mux_execute;
@@ -48,6 +58,8 @@ module ExecuteMemory_register (
     end
 
     // Salidas del registro
+	 assign rs1_memory = rs1;
+	 assign rs2_memory = rs2;
     assign ALUresult_out = ALUresult;
     assign wre_memory = wre;
     assign select_writeback_data_mux_memory = select_writeback_data_mux;
