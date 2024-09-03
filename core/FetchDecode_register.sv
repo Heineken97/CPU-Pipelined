@@ -2,6 +2,7 @@ module FetchDecode_register (
     input logic clk,
     input logic reset,
     input logic [1:0] flush,
+	 input logic [1:0] nop,
     input logic [15:0] pc,
     input logic [15:0] instruction_in,
     output logic [15:0] pc_decode,
@@ -19,9 +20,16 @@ module FetchDecode_register (
             pc_decode_reg <= 16'b0; // Inicializar el registro del PC a 0 cuando se activa el reset
         end 
 		  if (flush == 2'b00) begin
-				instruction_out_reg <= instruction_in; // Actualizar la instrucción
-            pc_decode_reg <= pc; // Actualizar el valor del PC
-        end else begin
+				if (nop == 2'b00) begin
+					instruction_out_reg <= instruction_in; // Actualizar la instrucción
+					pc_decode_reg <= pc; // Actualizar el valor del PC
+				end
+				else if (nop == 2'b01) begin
+					instruction_out_reg <= instruction_out; // No actualizar la instrucción
+					pc_decode_reg <= pc_decode; // No actualizar el valor del PC
+				end
+        end 
+		  else begin
             instruction_out_reg <= 16'b0; // Si flush es 1, la salida de la instrucción es 0
             pc_decode_reg <= pc; 
 				

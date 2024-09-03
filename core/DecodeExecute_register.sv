@@ -15,7 +15,8 @@ module DecodeExecute_register (
     output logic [15:0] srcB_out,
 	 output logic [3:0] rs1_execute,
 	 output logic [3:0] rs2_execute,
-	 output logic [3:0] rd_execute
+	 output logic [3:0] rd_execute,
+	 output logic load_instruction
 );
 
     logic [15:0] srcA;
@@ -23,6 +24,7 @@ module DecodeExecute_register (
 	 logic [3:0] rs1;
 	 logic [3:0] rs2;
 	 logic [3:0] rd;
+	 logic load;
 
     always_ff @(posedge clk) begin
         if (reset) begin
@@ -35,6 +37,7 @@ module DecodeExecute_register (
 				rs1 <= 4'b0;
 				rs2 <= 4'b0;
 				rd <= 4'b0;
+				load <= 4'b0;
         end else begin
             wre_execute <= nop_mux_output_in[7];
 				write_memory_enable_execute <= nop_mux_output_in[6];
@@ -45,6 +48,7 @@ module DecodeExecute_register (
 				rs1 <= rs1_decode;
 				rs2 <= rs2_decode;
 				rd <= rd_decode;
+				wre_execute <= nop_mux_output_in[8];
         end
     end
     assign srcA_out = srcA;
@@ -52,5 +56,6 @@ module DecodeExecute_register (
 	 assign rs1_execute = rs1;
 	 assign rs2_execute = rs2;
 	 assign rd_execute = rd;
+	 assign load_instruction = load;
 
 endmodule

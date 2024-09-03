@@ -50,7 +50,7 @@ module cpu_top_tb;
     logic [3:0] rd_writeback;
 	 logic wre_execute;
 	 logic [1:0] select_writeback_data_mux_writeback;
-	 
+	 logic load_instruction;
 	 logic [15:0] control_signals;
 
     // Generación de reloj
@@ -92,6 +92,7 @@ module cpu_top_tb;
         .clk(clk),
         .reset(reset),
         .flush(flush),
+		  .nop(select_nop_mux),
         .pc(pc_address),
         .instruction_in(instruction_fetch),
         .pc_decode(pc_decode),
@@ -101,8 +102,8 @@ module cpu_top_tb;
     // Instancia de la unidad de detección de riesgos
     hazard_detection_unit u_hazard_detection (
 		  .opcode(instruction_decode[15:12]),
-        .rd_load_execute(instruction_decode[11:8]),
-        .write_memory_enable_execute(write_memory_enable_execute),
+        .rd_load_execute(rd_execute),
+        .load_instruction(load_instruction),
 		  .regfile_data_1(rd1),
 		  .regfile_data_2(rd2),
         .rs1_decode(instruction_decode[3:0]),
@@ -179,7 +180,8 @@ module cpu_top_tb;
         .srcB_out(srcB_execute),
         .rs1_execute(rs1_execute),  // entrada a la unidad de adelantamiento
         .rs2_execute(rs2_execute), // entrada a la unidad de adelantamiento
-        .rd_execute(rd_execute) 
+        .rd_execute(rd_execute),
+		  .load_instruction(load_instruction)
     );
           
     // Instancia del MUX de forwarding A

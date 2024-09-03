@@ -12,199 +12,199 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/memory {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:10 on Sep 01,2024
+# Start time: 14:50:19 on Sep 03,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/ROM.v 
 # -- Compiling module ROM
 # 
 # Top level modules:
 # 	ROM
-# End time: 18:49:10 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:20 on Sep 03,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/memory {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:10 on Sep 01,2024
+# Start time: 14:50:20 on Sep 03,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/memory/RAM.v 
 # -- Compiling module RAM
 # 
 # Top level modules:
 # 	RAM
-# End time: 18:49:10 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:20 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:10 on Sep 01,2024
+# Start time: 14:50:20 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/top.sv 
 # -- Compiling module top
 # 
 # Top level modules:
 # 	top
-# End time: 18:49:11 on Sep 01,2024, Elapsed time: 0:00:01
+# End time: 14:50:21 on Sep 03,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/PC_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:11 on Sep 01,2024
+# Start time: 14:50:21 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/PC_register.sv 
 # -- Compiling module PC_register
 # 
 # Top level modules:
 # 	PC_register
-# End time: 18:49:11 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:21 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_2inputs.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:11 on Sep 01,2024
+# Start time: 14:50:22 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_2inputs.sv 
 # -- Compiling module mux_2inputs
 # 
 # Top level modules:
 # 	mux_2inputs
-# End time: 18:49:11 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:22 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/FetchDecode_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:11 on Sep 01,2024
+# Start time: 14:50:22 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/FetchDecode_register.sv 
 # -- Compiling module FetchDecode_register
 # 
 # Top level modules:
 # 	FetchDecode_register
-# End time: 18:49:11 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:22 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/Regfile_scalar.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:11 on Sep 01,2024
+# Start time: 14:50:22 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/Regfile_scalar.sv 
 # -- Compiling module Regfile_scalar
 # 
 # Top level modules:
 # 	Regfile_scalar
-# End time: 18:49:12 on Sep 01,2024, Elapsed time: 0:00:01
+# End time: 14:50:22 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:12 on Sep 01,2024
+# Start time: 14:50:23 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/controlUnit.sv 
 # -- Compiling module controlUnit
 # 
 # Top level modules:
 # 	controlUnit
-# End time: 18:49:12 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:23 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:12 on Sep 01,2024
+# Start time: 14:50:23 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/DecodeExecute_register.sv 
 # -- Compiling module DecodeExecute_register
 # 
 # Top level modules:
 # 	DecodeExecute_register
-# End time: 18:49:12 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:23 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:12 on Sep 01,2024
+# Start time: 14:50:24 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ALU.sv 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 18:49:12 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:24 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/adder.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:13 on Sep 01,2024
+# Start time: 14:50:24 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/adder.sv 
 # -- Compiling module adder
 # 
 # Top level modules:
 # 	adder
-# End time: 18:49:13 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:25 on Sep 03,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:13 on Sep 01,2024
+# Start time: 14:50:25 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv 
 # -- Compiling module ExecuteMemory_register
 # 
 # Top level modules:
 # 	ExecuteMemory_register
-# End time: 18:49:13 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:25 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:13 on Sep 01,2024
+# Start time: 14:50:25 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv 
 # -- Compiling module MemoryWriteback_register
 # 
 # Top level modules:
 # 	MemoryWriteback_register
-# End time: 18:49:13 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:25 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/comparator_branch.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:13 on Sep 01,2024
+# Start time: 14:50:25 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/comparator_branch.sv 
 # -- Compiling module comparator_branch
 # 
 # Top level modules:
 # 	comparator_branch
-# End time: 18:49:13 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:26 on Sep 03,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_3inputs.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:14 on Sep 01,2024
+# Start time: 14:50:26 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/mux_3inputs.sv 
 # -- Compiling module mux_3inputs
 # 
 # Top level modules:
 # 	mux_3inputs
-# End time: 18:49:14 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:26 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/hazard_detection_unit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:14 on Sep 01,2024
+# Start time: 14:50:26 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/hazard_detection_unit.sv 
 # -- Compiling module hazard_detection_unit
 # 
 # Top level modules:
 # 	hazard_detection_unit
-# End time: 18:49:14 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:26 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:14 on Sep 01,2024
+# Start time: 14:50:26 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/forwarding_unit.sv 
 # -- Compiling module forwarding_unit
 # 
 # Top level modules:
 # 	forwarding_unit
-# End time: 18:49:14 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:27 on Sep 03,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/core {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/zeroExtend.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:14 on Sep 01,2024
+# Start time: 14:50:27 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/zeroExtend.sv 
 # -- Compiling module zeroExtend
 # 
 # Top level modules:
 # 	zeroExtend
-# End time: 18:49:15 on Sep 01,2024, Elapsed time: 0:00:01
+# End time: 14:50:27 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/CPU/CPU-Pipelined/testbenches {C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:15 on Sep 01,2024
+# Start time: 14:50:27 on Sep 03,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches" C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv 
 # -- Compiling module cpu_top_tb
 # 
 # Top level modules:
 # 	cpu_top_tb
-# End time: 18:49:15 on Sep 01,2024, Elapsed time: 0:00:00
+# End time: 14:50:27 on Sep 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  cpu_top_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" cpu_top_tb 
-# Start time: 18:49:15 on Sep 01,2024
+# Start time: 14:50:28 on Sep 03,2024
 # Loading sv_std.std
 # Loading work.cpu_top_tb
 # Loading work.adder
@@ -231,17 +231,17 @@
 # ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'nop'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/PC_register.sv(4).
 #    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/pc_reg File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 75
 # ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_execute'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv(5).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 229
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 231
 # ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (4) for port 'rd_execute'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv(12).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 229
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 231
 # ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_memory'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv(14).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 229
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 231
 # ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (4) for port 'rd_memory'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/ExecuteMemory_register.sv(21).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 229
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/ExecuteMemory_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 231
 # ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_memory'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv(5).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 262
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 264
 # ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'select_writeback_data_mux_writeback'. The port definition is at: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/MemoryWriteback_register.sv(15).
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 262
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_top_tb/MemoryWriteback_register_instance File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv Line: 264
 # 
 # add wave *
 # view structure
@@ -249,9 +249,9 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ** Note: $finish    : C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv(308)
+# ** Note: $finish    : C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv(310)
 #    Time: 500 ps  Iteration: 0  Instance: /cpu_top_tb
 # 1
-# Break in Module cpu_top_tb at C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv line 308
-# End time: 19:01:33 on Sep 01,2024, Elapsed time: 0:12:18
+# Break in Module cpu_top_tb at C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/testbenches/cpu_top_tb.sv line 310
+# End time: 14:55:37 on Sep 03,2024, Elapsed time: 0:05:09
 # Errors: 0, Warnings: 7
